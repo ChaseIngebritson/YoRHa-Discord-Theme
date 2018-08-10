@@ -12,4 +12,12 @@
 - Made the channel selectors thinner
 - Made the input form shorter
 ### Fixed
-- Made the text feed background not gray again
+- Made the chat feed background not gray again
+
+## v0.3.0
+### Added
+- Animations for the member list
+- Styles for attachments, audio, and code
+- Styles and animations for reactions
+### Fixed
+- The chat feed dividers missing their styles

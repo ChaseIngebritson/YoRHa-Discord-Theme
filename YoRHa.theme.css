@@ -429,45 +429,75 @@ div[class*="actionIcon-"] svg path {
 
 /* ===== Content text ===== */
 
-.markup-2BOw-j {
+div[class*="markup-"] {
     color: #4D493E !important;
 }
 
 /* ===== Content header ===== */
 
-.titleWrapper-1l0xT9 /* Background */ {
+div[class*="chat-"] div[class*="titleWrapper-"] /* Background */ {
     background-color: #4D493E;
 }
 
-.title-3qD0b- {
+div[class*="chat-"] div[class*="title-"]  {
     box-shadow: none !important;
 }
 
-.channelName-3stJzi /* Name */ {
-    color: #C8C2AA !important;
+div[class*="chat-"] span[class*="channelName-"],
+div[class*="chat-"] span[class*="topic-"] {
+    color: #C8C2AA;
 }
 
-.channelName-3stJzi svg path, /* Pound icon */
-.iconMargin-2YXk4F svg[name="NotificationBell"] g path,
-.iconMargin-2YXk4F svg[name="NotificationBellOff"] g path,
-.iconMargin-2YXk4F svg[name="Pin"] g path.iconForeground-3y9f0B,
-.iconMargin-2YXk4F svg[name="People"] g path,
-.iconMargin-2YXk4F svg[name="Mention"] path,
-.iconMargin-2YXk4F svg[name="QuestionMark"] path {
+span[class*="channelName-"] svg path, /* Pound icon */
+span[class*="iconMargin-"] svg[name="NotificationBell"] g path,
+span[class*="iconMargin-"] svg[name="Pin"] g path.iconForeground-3y9f0B,
+span[class*="iconMargin-"] svg[name="People"] g path,
+span[class*="iconMargin-"] svg[name="Mention"] path,
+span[class*="iconMargin-"] svg[name="QuestionMark"] path {
     fill: #C8C2AA;
 }
 
 /* ===== Content body ===== */
 
-.timestampCozy-2hLAPV {
+time[class*="timestampCozy-"] {
     color: #4D493E !important;
 }
 
-.chat .divider > span,
-.chat .divider:before /* Divider */ {
+div[class*="chat-"] div[class*="divider-"] > span,
+div[class*="chat-"] div[class*="divider-"]::before /* Divider */ {
     color: #C8C2AA !important;
-    background-color: #4D493E !important;
+    background-color: #4D493E;
     border-radius: 0;
+}
+
+div[class*="chat-"] .wrapper-3WhCwL,
+div[class*="chat-"] .mention /* Links and mentions */ {
+    background-color: #4D493E;
+    color: #C8C2AA;
+}
+
+div[class*="chat-"] div[class*="wrapperAudio-"],
+div[class*="chat-"] div[class*="attachment-"],
+div[class*="chat-"] div[class*="embed-"],
+div[class*="chat-"] div[class*="markup-"] pre,
+div[class*="chat-"] div[class*="markup-"] code,
+div[class*="chat-"] div[class*="markup-"] code.inline,
+div[class*="chat-"] .wrapper-35wsBm {
+    border-radius: 0;
+    border-color: #4D493E;
+    background-color: #4D493E;
+}
+div[class*="chat-"] div[class*="wrapperAudio-"] div[class*="audioMetadata-"] svg[class*="metadataIcon-"],
+div[class*="chat-"] div[class*="attachment-"] svg[class*="downloadButton-"],
+div[class*="chat-"] div[class*="markup-"] code,
+div[class*="chat-"] .wrapper-35wsBm * {
+    color: #C8C2AA;
+}
+
+div[class*="chat-"] div[class*="buttonContainer-"] div[class*="btn-"],
+div[class*="chat-"] div[class*="buttonContainer-"] div[class*="button-"] {
+
+    visibility: visible;
 }
 
 /* ===== Content scrollbar ===== */
@@ -504,7 +534,7 @@ div[class*="actionIcon-"] svg path {
 
 /* ===== Content form ===== */
 
-.chat-3bRxxu form {
+div[class*="chat-"] form {
     background: #4D493E !important;
     margin-left: 0;
     margin-right: 0;
@@ -513,30 +543,102 @@ div[class*="actionIcon-"] svg path {
     padding-right: 10px;
 }
 
-.chat-3bRxxu form .channelTextArea-rNsIhG .inner-zqa7da {
+div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] {
     border-radius: 0;
 }
 
-.contents-18-Yxp svg path {
-    fill: #C8C2AA !important;
-}
-.contents-18-Yxp .spriteNormal-1wvG5n {
-    filter: sepia(100%);
+div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] textarea[class*="textArea-"] {
+    color: #C8C2AA;
 }
 
-.textArea-2Spzkt {
-    color: #C8C2AA !important;
+div[class*="chat-"] div[class*="contents-"] svg path {
+    fill: #C8C2AA;
+}
+
+div[class*="chat-"] div[class*="contents-"] div[class*="sprite-"] {
+    filter: sepia(100%);
 }
 
 /* ===== Member list ===== */
 
-.members-1998pB {
-    background-color: #C8C2AA !important;
+div[class*="membersWrap-"] div[class*="members-"] {
+    background-color: #C8C2AA;
 }
 
-.membersGroup-v9BXpm,
-.activityText-sLG0UL {
-    color: #4D493E !important;
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] {
+    position: relative;
+    margin-left: 0;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="membersGroup-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="activityText-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] svg path[class*="activityIconForeground-"] {
+    color: #4D493E;
+    fill: #4D493E;
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"] {
+    z-index: 2;
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="activityText-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="content-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="activityText-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover svg path[class*="activityIconForeground-"],
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open svg path[class*="activityIconForeground-"] {
+    color: #C8C2AA;
+    fill: #C8C2AA;
+    background-color: transparent;
+    z-index: 2;
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 0;
+    background-color: #4D493E;
+    transition: width .2s;
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover,
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open {
+    border-color: #4D493E;
+}
+
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover::before,
+div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open::before {
+    width: 100%;
+}
+
+/* ===== Bots ===== */
+
+span[class*="bot-"] {
+    border-radius: 0;
+    filter: sepia(75%);
+}
+
+/* ===== Reactions ===== */
+
+.reactions .reaction {
+    background-color: #4D493E !important;
+    border-radius: 0;
+    filter: sepia(50%);
+    transition: all 0.2s;
+}
+.reactions .reaction:hover {
+    filter: sepia(0%);
+}
+.reactions .reaction .reaction-count {
+    color: #C8C2AA !important;
 }
 
 /* ===== Setting backgrounds to transparent ===== */
