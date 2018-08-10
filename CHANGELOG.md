@@ -21,3 +21,7 @@
 - Styles and animations for reactions
 ### Fixed
 - The chat feed dividers missing their styles
+
+## v0.3.1
+### Fixed
+- Updated the README screenshot
