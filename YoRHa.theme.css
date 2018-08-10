@@ -1,37 +1,31 @@
-/*//META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"Monkey","version":"0.1.0","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme","source":""}*//**/
+:root {
+    --light-color: #C8C2AA;
+    --dark-color: #4D493E;
+}
 
-/*
-    background-color: #C8C2AA;
-    color: #4D493E;
-    border-color: #4D493E;
-*/
-
-.appMount-3VJmYg /* Background */ {
+div[class*="appMount"] /* Background */ {
     background: url(https://i.imgur.com/PmYI9Mu.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.guildsWrapper-5TJh6A /* Sidebar */ {
-    width: 150px;
-    margin-right: 20px;
+div[class*="guildsWrapper-"] /* Sidebar */ {
+    width: 100px;
 }
 
-.scrollerWrap-1IAIlv /* Sidebar scroll wrapper */ {
+div[class*="scrollerWrap-"] /* Sidebar scroll wrapper */ {
     width: 100%;
 }
 
-.guilds-1q_RqH /* All server icons */ {
+div[class*="guilds-"] /* All server icons */ {
     padding-left: 0;
-}
-.guilds-1q_RqH::-webkit-scrollbar /* Server icon scrollbar */ {
-    display: none;
 }
 
 /* ===== Guild icon ===== */
 
-.guild-1EfMGQ /* Individual icon */ {
+div[class*="guild-"], /* Individual icon */
+button[class*="guild-"] {
     height: 35px;
     overflow: hidden;
     width: 100%;
@@ -40,16 +34,15 @@
     margin-top: 15px !important;
     transition: all 0.2s;
 }
-.guild-1EfMGQ > div,
-.guild-1EfMGQ .guildInner-3DSoA4,
-.guild-1EfMGQ .guildInner-3DSoA4 a {
+
+div[class*="guild-"] > div,
+div[class*="guildInner-"],
+div[class*="guild-"] div[class*="guildInner-"] a {
     height: 100%;
     width: auto;
 }
-.guild-1EfMGQ .guildInner-3DSoA4 /* Guild image container */ {
-    border-radius: 0 !important;
-}
-.guild-1EfMGQ .guildIcon-CT-ZDq /* Guild image */ {
+
+div[class*="guild-"] div[class*="guildIcon-"] /* Guild image */ {
     height: 100%;
     width: 35px;
     margin-left: auto;
@@ -58,16 +51,17 @@
     filter: sepia(75);
 }
 
-.guild-1EfMGQ:hover {
+div[class*="guild-"]:hover {
     background-color: transparent;
     border-color: #4D493E;
     color: #C8C2AA;
 }
-.guild-1EfMGQ:hover .guildInner-3DSoA4::before{
+div[class*="guild-"]:hover div[class*="guildInner-"]::before{
     width: 100%;
 }
 
-.guild-1EfMGQ .guildInner-3DSoA4::before /* Black bar */{
+div[class*="guild-"] div[class*="guildInner-"]::before, /* Black bar */
+button[class*="guildsAdd-"]::before {
     content: "";
     position: absolute;
 
@@ -82,21 +76,43 @@
 
 /* ===== Currently selected guild ===== */
 
-.guild-1EfMGQ.selected-ML3OIq /* Icon container */ {
+div[class*="guild-"][class*="selected-"] /* Icon container */ {
     border-color: #4D493E;
     background-color: transparent;
 }
-.guild-1EfMGQ.selected-ML3OIq .guildIcon-CT-ZDq /* Icon picture */ {
+div[class*="guild-"][class*="selected-"] div[class*="guildIcon-"] /* Icon picture */ {
     filter: sepia(0%);
 }
-.guild-1EfMGQ.selected-ML3OIq .guildInner-3DSoA4::before /* Icon black bar */ {
+div[class*="guild-"][class*="selected-"] div[class*="guildInner-"]::before /* Icon black bar */ {
     width: 100%;
 }
 
+/* ===== Unread guild ===== */
+div[class*="theme-"] div[class*="guild-"][class*="unread-"]::before,
+div[class*="guild-"][class*="unread-"]::before {
+    left: 8px;
+    background: transparent;
+    background-image: url(https://i.imgur.com/pb3CYol.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -18px;
+    font-size: 1.5em;
+    color: #4D493E;
+    height: 100%;
+    width: 15px;
+}
+
+div[class*="theme-"] div[class*="guild-"][class*="unread-"]:hover::before,
+div[class*="guild-"][class*="unread-"]::before,
+div[class*="guild-"][class*="selected-"][class*="unread-"]::before,
+div[class*="theme-"] div[class*="guild-"][class*="selected-"][class*="unread-"]::before {
+    background-image: url(https://i.imgur.com/VwWhoEy.png);
+}
 
 /* ===== Home icon ===== */
 
-.guild-1EfMGQ:nth-child(1) /* Home icon */ {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) /* Home icon */ {
     width: 67px;
     height: 75px;
     background-color: transparent;
@@ -111,22 +127,21 @@
     animation-timing-function: ease-in-out;
 }
 
-.guild-1EfMGQ:nth-child(1).selected-ML3OIq /* Home icon selected */,
-.guild-1EfMGQ:nth-child(1):hover /* Home icon hover */ {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1)[class*="selected-"] /* Home icon selected */,
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1):hover /* Home icon hover */ {
     border-color: transparent;
     animation: none;
 }
-.guild-1EfMGQ:nth-child(1).selected-ML3OIq .guildInner-3DSoA4::before, /* Home icon selected black bar */
-.guild-1EfMGQ:nth-child(1):hover .guildInner-3DSoA4::before /* Home icon hover black bar */ {
-    width: 0;
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) div[class*="guildInner-"]::before { /* Home icon selected black bar */
+    background-color: transparent;
 }
 
-.guild-1EfMGQ:nth-child(1) a /* Home icon link */ {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) a /* Home icon link */ {
     background-image: url(https://i.imgur.com/yyiIoTm.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
-.guild-1EfMGQ:nth-child(1) svg /* Home icon Discord svg */ {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) svg /* Home icon Discord svg */ {
     display: none;
 }
 
@@ -137,24 +152,23 @@
 
 /* ===== Guild Public icon ===== */
 
-.guild-1EfMGQ:nth-child(2) {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     border-left-color: transparent;
     border-right-color: transparent;
 }
-.guild-1EfMGQ:nth-child(2) a {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) a {
     color: #4D493E !important;
 }
-.guild-1EfMGQ:nth-child(2):hover a {
+div[class*="guilds-"] > div[class*="guild-"]:nth-child(2):hover a {
     color: #C8C2AA !important;
 }
 
 /* ===== Guild Friends online ===== */
 
-.friendsOnline-_wi_fM {
-    width: 50%;
+div[class*="friendsOnline-"] {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -163,42 +177,31 @@
 
 /* ===== Guild DMs ===== */
 
-.dms-rcsEnV {
-    background-color: #4D493E;
+span[class*="dms-"] {
+    background-color: #C8C2AA;
 }
-.dms-rcsEnV > .guild-1EfMGQ  {
-    animation: none;
-    height: 35px;
+span[class*="dms-"] div[class*="guildInner-"] a {
     width: 100%;
-}
-.dms-rcsEnV .badge-1GsMF2 {
-    margin-right: auto;
-    margin-left: auto;
-    width: 0%;
-    padding-right: 56% !important;
 }
 
 /* ===== Guild seperator ===== */
 
-.guildSeparator-1X4GQ1 {
-    display:none;
+div[class*="guildSeparator-"] {
+    width: 100%;
 }
 
 /* ===== Notifications ===== */
 
-.wrapper-232cHJ /* General notification */ {
-    background-color: #4D493E;
-    color: #C8C2AA;
-}
-.guild-1EfMGQ .wrapper-232cHJ /* Notification inside guild */ {
-    padding-top: 15px;
-    bottom: -15px;
-    padding-right: 9px;
+div[class*="guild-"] div[class*="avatar-small-"],
+div[class*="guild-"] div[class*="avatar-small-"] a {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
 }
 
 /* ===== New guild ===== */
 
-.guildsAdd-21_IdK /* Initial icon */ {
+button[class*="guildsAdd-"] /* Initial icon */ {
     border-radius: 0;
     background-color: #C8C2AA !important;
     color: #4D493E !important;
@@ -206,27 +209,16 @@
     border-left-width: 0 !important;
     border-right-width: 0 !important;
 }
-.guildsAdd-21_IdK::before /* Icon black bar */ {
-    content: "";
-    position: absolute;
-
-    left: 0;
-    top: 3px;
-    bottom: 3px;
-    width: 0;
-    background-color: #4D493E;
-    transition: width .2s;
-}
-.guildsAdd-21_IdK:hover /* Initial icon hover */ {
+button[class*="guildsAdd-"]:hover /* Initial icon hover */ {
     border-color: #4D493E !important;
     background-color: transparent;
     color: #C8C2AA !important;
 }
-.guildsAdd-21_IdK:hover::before /* Icon black bar hover */ {
+button[class*="guildsAdd-"]:hover::before /* Icon black bar hover */ {
     width: 100%;
 }
 
-.guildsAddInner-1KMFy- /* Icon inner text */ {
+span[class*="guildsAddInner-"] /* Icon inner text */ {
     top: -5px;
 }
 
@@ -251,16 +243,16 @@
 
 /* ===== Guild speaking icon ===== */
 
-.guild-1EfMGQ.audio-3vVhBi .guildInner-3DSoA4:after,
-.guild-1EfMGQ.video-15yGu3 .guildInner-3DSoA4:after {
-    right: 20px !important;
+div[class*="guild-"][class*="audio-"] div[class*="guildInner-"]::after,
+div[class*="guild-"][class*="video-"] div[class*="guildInner-"]::after {
+    right: 4px !important;
     top: 5px !important;
     background-color: #4D493E !important;
 }
 
 /* ===== Guild placeholder ===== */
 
-.guildPlaceholder-1ioaid {
+div[class*="guildPlaceholder-"] {
     border-radius: 0;
     border: none;
     background-color: #4D493E;
@@ -268,36 +260,37 @@
 
 /* ===== Windows buttons ===== */
 
-.winButtonClose-1HsbF- svg polygon /* Close button */ {
+div[class*="winButtonClose-"] svg polygon /* Close button */ {
     fill: #4D493E;
 }
-.winButtonClose-1HsbF-:hover /* Close button hover */ {
+div[class*="winButtonClose-"]:hover /* Close button hover */ {
     background-color: #4D493E;;
 }
-.winButtonClose-1HsbF-:hover svg polygon /* Close button hover icon */ {
+div[class*="winButtonClose-"]:hover svg polygon /* Close button hover icon */ {
     fill: #C8C2AA;
 }
 
-.winButtonMinMax-PBQ2gm svg[name="TitleBarMaximize"] rect /* Maximize button */ {
+div[class*="winButtonMinMax-"] svg[name="TitleBarMaximize"] rect /* Maximize button */ {
     stroke: #4D493E;
 }
-.winButtonMinMax-PBQ2gm:hover svg[name="TitleBarMaximize"] rect /* Mazimize button hover */{
+div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMaximize"] rect /* Mazimize button hover */{
     stroke: #C8C2AA;
 }
 
-.winButtonMinMax-PBQ2gm svg[name="TitleBarMinimize"] rect /* Minimize button */ {
+div[class*="winButtonMinMax-"] svg[name="TitleBarMinimize"] rect /* Minimize button */ {
     fill: #4D493E;
 }
-.winButtonMinMax-PBQ2gm:hover svg[name="TitleBarMinimize"] rect /* Minimize button hover */ {
+div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMinimize"] rect /* Minimize button hover */ {
     fill: #C8C2AA;
 }
 
 /* ===== Wordmark ===== */
 
-.wordmark-2iDDfm svg path {
+div[class*="wordmark-"] svg path {
     fill: #4D493E;
 }
-.titleBar-AC4pGV::after {
+
+div[class*="titleBar-"]::after {
     color:#fff;
     position:absolute;
     left:0
@@ -305,37 +298,37 @@
 
 /* ===== Unread message indicator ===== */
 
-.unread-1xRYoj {
+div[class*="unread-"] {
     box-shadow: none !important;
 }
 
 /* ===== Channel container ===== */
 
-.container-PNkimc /* Container background */ {
+div[class*="channels-"] /* Container background */ {
     background-color: #C8C2AA !important;
 }
 
-.header-2o-2hj /* Container header */ {
+header[class*="header-"] /* Container header */ {
     background-color: #4D493E !important;
     color: #C8C2AA;
     box-shadow: none;
     border-right: 1px solid #C8C2AA;
 }
 
-.header-2o-2hj svg g path:nth-child(2),
-.header-2o-2hj svg g path:nth-child(3) {
+header[class*="header-"] svg g path:nth-child(2),
+header[class*="header-"] svg g path:nth-child(3) {
     stroke: #C8C2AA;
 }
 
 /* ===== Channels ===== */
 
-.content-20Aix8 /* Channel containers */ {
+div[class*="channels-"] div[class*="content-"] /* Channel containers */ {
     margin-left: 0;
     border-radius:0;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
 }
-.content-20Aix8::before /* Channel containers black bar */ {
+div[class*="channels-"] div[class*="content-"]::before /* Channel containers black bar */ {
     content: "";
     position: absolute;
     left: 0;
@@ -346,92 +339,70 @@
     transition: width .2s;
 }
 
-.content-20Aix8.contentSelectedText-3wUhMi, /* Selected channel */
-.content-20Aix8:hover,
-.contentConnectedVoice-qL-YrL {
-    border-color: #4D493E;
+div[class*="channels-"] div[class*="contentSelectedText-"],
+div[class*="channels-"] div[class*="contentHoveredText-"],
+div[class*="channels-"] div[class*="contentConnectedVoice-"],
+div[class*="channels-"] div[class*="contentHoveredVoice-"] {
+    border-color: #4D493E !important;
     background-color: transparent;
 }
-.content-20Aix8.contentSelectedText-3wUhMi::before, /* Selected channel black bar */
-.wrapperConnectedVoice-2mvQJY,
-.content-20Aix8:hover::before,
-.contentConnectedVoice-qL-YrL::before {
+
+div[class*="channels-"] div[class*="contentSelectedText-"]::before,
+div[class*="channels-"] div[class*="contentHoveredText-"]::before,
+div[class*="channels-"] div[class*="contentConnectedVoice-"]::before,
+div[class*="channels-"] div[class*="contentHoveredVoice-"]::before {
     width: 100%;
 }
 
-.nameConnectedText-3CzNQn,
-.nameConnectedVoice-MHUX5F,
-.nameSelectedText-sp_EUw,
-.nameSelectedVoice-1qSph5,
-.nameDefaultText-24KCy5,
-.nameDefaultVoice-3WUH7s,
-.nameLockedText-3pqQcL,
-.nameLockedVoice-26MhB1,
-.nameHoveredText-1uO31y,
-.nameHoveredVoice-YJ1Vfd,
-.nameUnreadText-DfkrI4,
-.nameUnreadVoice-EVo-wI /* Text and voice channel name */ {
-    z-index: 2;
+div[class*="name-"] {
     color: #4D493E;
+    z-index: 2;
 }
 
-.nameSelectedText-sp_EUw,
-.nameSelectedVoice-1qSph5,
-.nameHoveredText-1uO31y,
-.nameHoveredVoice-YJ1Vfd,
-.nameConnectedText-3CzNQn,
-.nameConnectedVoice-MHUX5F,
-.content-20Aix8:hover .nameUnreadText-DfkrI4,
-.content-20Aix8:hover .nameUnreadVoice-EVo-wI /* Active text and voice channel name */ {
+div[class*="name-"][class*="nameConnectedText-"],
+div[class*="name-"][class*="nameConnectedVoice-"],
+div[class*="name-"][class*="nameSelectedText-"],
+div[class*="name-"][class*="nameSelectedVoice-"],
+div[class*="name-"][class*="nameHoveredText-"],
+div[class*="name-"][class*="nameHoveredVoice-"],
+div[class*="contentHoveredText-"] div[class*="name-"][class*="nameUnreadText-"] {
     color: #C8C2AA;
 }
 
 /* ===== Channel groups ===== */
 
-.nameCollapsed-34uFWo,
-.nameDefault-2DI02H,
-.nameHovered-1gxhWH,
-.nameHoveredCollapsed-2orEWB,
-.nameMuted-1MCOt4,
-.nameUnread-njOjIS {
-    color: #4D493E;
-}
-
-.iconDefault-3Gr8d2 path,
-.iconHovered-2L3-fB path,
-.iconHoveredCollapsed-3caIIZ path,
-.iconMuted-1HVBGH path,
-.iconUnread-2eGkvX path,
-.iconCollapsed-3hFp_8 path {
+svg[class*="iconDefault-"] path,
+svg[class*="iconHovered-"] path,
+svg[class*="iconHoveredCollapsed-"] path,
+svg[class*="iconMuted-"] path,
+svg[class*="iconUnread-"] path,
+svg[class*="iconCollapsed-"] path {
     fill: #4D493E;
 }
 
-
-/* ===== User name ===== */
-
-.name-2upRM5 {
+div[class*="nameDefault-"],
+div[class*="nameHovered-"],
+div[class*="nameHoveredCollapsed-"],
+div[class*="nameCollapsed-"] {
     color: #4D493E;
 }
 
 /* ===== Icons ===== */
 
-.icon-3nr6O- path, /* Mute */
-.icon-29PTzq path, /* Deafen */
-.icon-sxakjD path /* Speaker / Pound */ {
+svg[class*="icon-"] path {
     fill: #4D493E;
     opacity: 1;
 }
 
-.colorConnectedText-1c_uzY path,
-.colorConnectedVoice-3kyvUN path,
-.colorHoveredText-OZnAgu path,
-.colorHoveredVoice-1kucsK path,
-.colorLockedText-1VRkPt path,
-.colorLockedVoice-2UlBjl path,
-.colorSelectedText-1y4Wvs path,
-.colorSelectedVoice-Xcb_9R path,
-
-.actionIcon-2Hi9ZG svg path /* Invite icon */ {
+svg[class*="icon-"][class*="colorConnectedText-"] path,
+svg[class*="icon-"][class*="colorConnectedVoice-"] path,
+svg[class*="icon-"][class*="colorHoveredText-"] path,
+svg[class*="icon-"][class*="colorHoveredVoice-"] path,
+svg[class*="icon-"][class*="colorLockedText-"] path,
+svg[class*="icon-"][class*="colorLockedVoice-"] path,
+svg[class*="icon-"][class*="colorSelectedText-"] path,
+svg[class*="icon-"][class*="colorSelectedVoice-"] path,
+div[class*="actionIcon-"] svg path {
     fill: #C8C2AA;
 }
 
@@ -442,8 +413,8 @@
     border-color: #C8C2AA;
 }
 
-.channel-SEolQq /* Channel Name */ {
-    color: #C8C2AA !important;
+.container-1UB9sr a[class*="channel-"] /* Channel Name */ {
+    color: #C8C2AA;
 }
 
 /* ===== User / Settings ===== */
@@ -533,19 +504,16 @@
 
 /* ===== Content form ===== */
 
-.chat form {
+.chat-3bRxxu form {
     background: #4D493E !important;
     margin-left: 0;
     margin-right: 0;
-    height: 106px;
     border-left: 1px solid #C8C2AA;
     padding-left: 10px;
     padding-right: 10px;
 }
-.chat form .channelTextArea-rNsIhG {
-    margin-top: 30px;
-}
-.chat form .channelTextArea-rNsIhG .inner-zqa7da {
+
+.chat-3bRxxu form .channelTextArea-rNsIhG .inner-zqa7da {
     border-radius: 0;
 }
 
@@ -585,6 +553,9 @@
     background: transparent;
 }
 
+.content-yTz4x3,
+.messagesWrapper-3lZDfY,
+.chat-3bRxxu,
 .guild-1EfMGQ .guildInner-3DSoA4, /* Sidebar channel icons */
 .chat, /* Chat background */
 .chat .content, /* Chat content background */

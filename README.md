@@ -1,6 +1,6 @@
 ## YoRHa Better Discord Theme
 
-A Better Discord theme designed with the same principles as the UI from NieR: Automata.
+A Better Discord theme based on the UI from NieR: Automata.
 
 ![Screenshot](https://i.imgur.com/i5E8PSX.png)
 
