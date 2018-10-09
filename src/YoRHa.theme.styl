@@ -1,31 +1,48 @@
-:root {
-    --light-color: #C8C2AA;
-    --dark-color: #4D493E;
+// Variables
+
+light-color = #C8C2AA;
+dark-color = #4D493E;
+
+// Mixins
+
+//META{"name":"Clean Dark Wallpaper Edition","description":"Simple & clean dark theme. Basic enhancements. User settings for variety. Transparent with wallpaper. Please use the support server listed below if you need any help.","author":"Satoru","version":"0.5","website":"http://discord.gg/fjvwb95"}*//{}
+
+background-fill() { // Fills in the background of an element with a dark box
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: 0;
+    background-color: dark-color;
+    transition: width .2s;
 }
 
-div[class*="appMount"] /* Background */ {
+
+.da-appMount {
     background: url(https://i.imgur.com/PmYI9Mu.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-div[class*="guildsWrapper-"] /* Sidebar */ {
+/* ===== Sidebar wrapper ===== */
+
+.da-guildsWrapper {
     width: 100px;
 }
 
-div[class*="scrollerWrap-"] /* Sidebar scroll wrapper */ {
+.da-scrollerWrap {
     width: 100%;
 }
 
-div[class*="guilds-"] /* All server icons */ {
+.da-guilds {
     padding-left: 0;
 }
 
 /* ===== Guild icon ===== */
 
-div[class*="guild-"], /* Individual icon */
-button[class*="guild-"] {
+.guild-1EfMGQ {
     height: 35px;
     overflow: hidden;
     width: 100%;
@@ -35,14 +52,14 @@ button[class*="guild-"] {
     transition: all 0.2s;
 }
 
-div[class*="guild-"] > div,
-div[class*="guildInner-"],
-div[class*="guild-"] div[class*="guildInner-"] a {
+.guild-1EfMGQ > div,
+.da-guildInner,
+.guild-1EfMGQ .da-guildInner a {
     height: 100%;
     width: auto;
 }
 
-div[class*="guild-"] div[class*="guildIcon-"] /* Guild image */ {
+.guild-1EfMGQ .da-guildIcon {
     height: 100%;
     width: 35px;
     margin-left: auto;
@@ -51,45 +68,38 @@ div[class*="guild-"] div[class*="guildIcon-"] /* Guild image */ {
     filter: sepia(75);
 }
 
-div[class*="guild-"]:hover {
+.guild-1EfMGQ:hover {
     background-color: transparent;
     border-color: #4D493E;
     color: #C8C2AA;
 }
-div[class*="guild-"]:hover div[class*="guildInner-"]::before{
+.guild-1EfMGQ:hover .da-guildInner::before {
     width: 100%;
 }
 
-div[class*="guild-"] div[class*="guildInner-"]::before, /* Black bar */
-button[class*="guildsAdd-"]::before {
-    content: "";
-    position: absolute;
-
-    left: 0;
-    top: 3px;
-    bottom: 3px;
-    width: 0;
-    background-color: #4D493E;
-    transition: width .2s;
+.guild-1EfMGQ .da-guildInner::before,
+.da-guildsAdd::before {
+    background-fill()
     z-index: -1;
 }
 
 /* ===== Currently selected guild ===== */
 
-div[class*="guild-"][class*="selected-"] /* Icon container */ {
+.guild-1EfMGQ.selected-ML3OIq {
     border-color: #4D493E;
     background-color: transparent;
 }
-div[class*="guild-"][class*="selected-"] div[class*="guildIcon-"] /* Icon picture */ {
+.guild-1EfMGQ.selected-ML3OIq .da-guildIcon {
     filter: sepia(0%);
 }
-div[class*="guild-"][class*="selected-"] div[class*="guildInner-"]::before /* Icon black bar */ {
+.guild-1EfMGQ.selected-ML3OIq .da-guildInner::before {
     width: 100%;
 }
 
 /* ===== Unread guild ===== */
-div[class*="theme-"] div[class*="guild-"][class*="unread-"]::before,
-div[class*="guild-"][class*="unread-"]::before {
+
+div[class*="theme-"] .guild-1EfMGQ.da-unread::before,
+.guild-1EfMGQ.da-unread::before {
     left: 8px;
     background: transparent;
     background-image: url(https://i.imgur.com/pb3CYol.png);
@@ -103,16 +113,16 @@ div[class*="guild-"][class*="unread-"]::before {
     width: 15px;
 }
 
-div[class*="theme-"] div[class*="guild-"][class*="unread-"]:hover::before,
-div[class*="guild-"][class*="unread-"]::before,
-div[class*="guild-"][class*="selected-"][class*="unread-"]::before,
-div[class*="theme-"] div[class*="guild-"][class*="selected-"][class*="unread-"]::before {
+div[class*="theme-"] .guild-1EfMGQ.da-unread:hover::before,
+.guild-1EfMGQ.da-unread::before,
+.guild-1EfMGQ.selected-ML3OIq.da-unread::before,
+div[class*="theme-"] .guild-1EfMGQ.selected-ML3OIq.da-unread::before {
     background-image: url(https://i.imgur.com/VwWhoEy.png);
 }
 
 /* ===== Home icon ===== */
 
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) /* Home icon */ {
+.guild-1EfMGQ > .guild-1EfMGQ:nth-child(1) {
     width: 67px;
     height: 75px;
     background-color: transparent;
@@ -127,25 +137,25 @@ div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) /* Home icon */ {
     animation-timing-function: ease-in-out;
 }
 
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1)[class*="selected-"] /* Home icon selected */,
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1):hover /* Home icon hover */ {
+.da-guilds > .guild-1EfMGQ:nth-child(1).selected-ML3OIq,
+.da-guilds > .guild-1EfMGQ:nth-child(1):hover {
     border-color: transparent;
     animation: none;
 }
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) div[class*="guildInner-"]::before { /* Home icon selected black bar */
+.da-guilds > .guild-1EfMGQ:nth-child(1) .da-guildInner::before {
     background-color: transparent;
 }
 
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) a /* Home icon link */ {
+.da-guilds > .guild-1EfMGQ:nth-child(1) a {
     background-image: url(https://i.imgur.com/yyiIoTm.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(1) svg /* Home icon Discord svg */ {
+.da-guilds > .guild-1EfMGQ:nth-child(1) svg {
     display: none;
 }
 
-@keyframes spin /* Spin animation */ {
+@keyframes spin {
     from { transform: rotateY(0deg); }
     to { transform: rotateY(360deg); }
 }
@@ -329,14 +339,7 @@ div[class*="channels-"] div[class*="content-"] /* Channel containers */ {
     border-bottom: 1px solid transparent;
 }
 div[class*="channels-"] div[class*="content-"]::before /* Channel containers black bar */ {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 3px;
-    bottom: 3px;
-    width: 0;
-    background-color: #4D493E;
-    transition: width .2s;
+    background-fill()
 }
 
 div[class*="channels-"] div[class*="contentSelectedText-"],
@@ -599,14 +602,7 @@ div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-o
 }
 
 div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 3px;
-    bottom: 3px;
-    width: 0;
-    background-color: #4D493E;
-    transition: width .2s;
+    background-fill()
 }
 
 div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover,

@@ -1,0 +1,34 @@
+{
+  "name": "yorha-discord-theme",
+  "version": "1.0.0",
+  "description": "A Better Discord theme based on the UI from NieR: Automata.",
+  "main": "index.js",
+  "scripts": {
+    "build": "stylus -w src/YoRHa.theme.styl -o dist/YoRHa.theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaseIngebritson/YoRHa-Discord-Theme.git"
+  },
+  "keywords": [
+    "YoRHa",
+    "Better",
+    "Discord",
+    "Theme",
+    "NieR",
+    "Automata"
+  ],
+  "author": "Chase Ingebritson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChaseIngebritson/YoRHa-Discord-Theme/issues"
+  },
+  "homepage": "https://github.com/ChaseIngebritson/YoRHa-Discord-Theme#readme",
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^2.1.5",
+    "webpack-merge": "^4.1.3"
+  }
+}
