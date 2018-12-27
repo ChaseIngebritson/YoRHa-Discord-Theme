@@ -1,10 +1,11 @@
+//META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.4","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
+
 .da-appMount {
   background: url("https://i.imgur.com/PmYI9Mu.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-/* ===== Sidebar wrapper ===== */
 .da-guildsWrapper {
   width: 100px;
 }
@@ -14,23 +15,33 @@
 .da-guilds {
   padding-left: 0;
 }
-/* ===== Guild icon ===== */
-.guild-1EfMGQ {
+.da-guilds > .guild-1EfMGQ {
   height: 35px;
   overflow: hidden;
   width: 100%;
   background: #c8c2aa;
   border: 1px solid transparent;
-  margin-top: 15px !important;
+  margin-top: 15px;
   transition: all 0.2s;
 }
-.guild-1EfMGQ > div,
-.da-guildInner,
-.guild-1EfMGQ .da-guildInner a {
+.da-guilds > .guild-1EfMGQ:hover {
+  background-color: transparent;
+  border-color: #4d493e;
+  color: #c8c2aa;
+}
+.da-guilds > .guild-1EfMGQ:hover .da-guildInner::before {
+  width: 100%;
+}
+.da-guilds > .guild-1EfMGQ:hover .da-badge {
+  color: #c8c2aa;
+}
+.da-guilds > .guild-1EfMGQ > div,
+.da-guilds > .guild-1EfMGQ .da-guildInner,
+.da-guilds > .guild-1EfMGQ .da-guildInner a {
   height: 100%;
   width: auto;
 }
-.guild-1EfMGQ .da-guildIcon {
+.da-guilds > .guild-1EfMGQ .da-guildIcon {
   height: 100%;
   width: 35px;
   margin-left: auto;
@@ -38,16 +49,8 @@
   transition: all 0.2s;
   filter: sepia(75);
 }
-.guild-1EfMGQ:hover {
-  background-color: transparent;
-  border-color: #4d493e;
-  color: #c8c2aa;
-}
-.guild-1EfMGQ:hover .da-guildInner::before {
-  width: 100%;
-}
-.guild-1EfMGQ .da-guildInner::before,
-.da-guildsAdd::before {
+.da-guilds > .guild-1EfMGQ .da-guildInner::before,
+.da-guilds > .guild-1EfMGQ.da-guildsAdd::before {
   content: "";
   position: absolute;
   left: 0;
@@ -58,47 +61,24 @@
   transition: width 0.2s;
   z-index: -1;
 }
-/* ===== Currently selected guild ===== */
-.guild-1EfMGQ.selected-ML3OIq {
+.da-guilds > .guild-1EfMGQ.selected-ML3OIq {
   border-color: #4d493e;
   background-color: transparent;
 }
-.guild-1EfMGQ.selected-ML3OIq .da-guildIcon {
+.da-guilds > .guild-1EfMGQ.selected-ML3OIq .da-guildIcon {
   filter: sepia(0%);
 }
-.guild-1EfMGQ.selected-ML3OIq .da-guildInner::before {
+.da-guilds > .guild-1EfMGQ.selected-ML3OIq .da-guildInner::before {
   width: 100%;
 }
-/* ===== Unread guild ===== */
-div[class*="theme-"] .guild-1EfMGQ.da-unread::before,
-.guild-1EfMGQ.da-unread::before {
-  left: 8px;
-  background: transparent;
-  background-image: url("https://i.imgur.com/pb3CYol.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-top: -18px;
-  font-size: 1.5em;
-  color: #4d493e;
-  height: 100%;
-  width: 15px;
-}
-div[class*="theme-"] .guild-1EfMGQ.da-unread:hover::before,
-.guild-1EfMGQ.da-unread::before,
-.guild-1EfMGQ.selected-ML3OIq.da-unread::before,
-div[class*="theme-"] .guild-1EfMGQ.selected-ML3OIq.da-unread::before {
-  background-image: url("https://i.imgur.com/VwWhoEy.png");
-}
-/* ===== Home icon ===== */
-.guild-1EfMGQ > .guild-1EfMGQ:nth-child(1) {
+.da-guilds > .guild-1EfMGQ:nth-child(1) {
   width: 67px;
   height: 75px;
   background-color: transparent;
   padding: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0 !important;
+  margin-top: 0;
   animation-name: spin;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -120,152 +100,156 @@ div[class*="theme-"] .guild-1EfMGQ.selected-ML3OIq.da-unread::before {
 .da-guilds > .guild-1EfMGQ:nth-child(1) svg {
   display: none;
 }
-/* ===== Guild Public icon ===== */
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) {
+.da-guilds > .guild-1EfMGQ:nth-child(2) {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
   border-left-color: transparent;
   border-right-color: transparent;
 }
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) a {
-  color: #4d493e !important;
+.da-guilds > .guild-1EfMGQ:nth-child(2) a {
+  color: #4d493e;
 }
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2):hover a {
-  color: #c8c2aa !important;
+.da-guilds > .guild-1EfMGQ:nth-child(2):hover a {
+  color: #c8c2aa;
 }
-/* ===== Guild Friends online ===== */
-div[class*="friendsOnline-"] {
+.da-guilds > .guild-1EfMGQ.da-guildsAdd {
+  border-radius: 0;
+  background-color: #c8c2aa;
+  color: #4d493e;
+  border: 1px solid transparent;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+.da-guilds > .guild-1EfMGQ.da-guildsAdd:hover {
+  border-color: #4d493e;
+  background-color: transparent;
+  color: #c8c2aa;
+}
+.da-guilds > .guild-1EfMGQ.da-guildsAdd:hover::before {
+  width: 100%;
+}
+.da-guilds > .guild-1EfMGQ.da-guildsAdd .da-guildsAddInner {
+  top: -5px;
+}
+.da-guilds > .guild-1EfMGQ.unread-qLkInr::before {
+  left: 8px;
+  background: transparent;
+  background-image: url("https://i.imgur.com/pb3CYol.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -18px;
+  font-size: 1.5em;
+  color: #4d493e;
+  height: 100%;
+  width: 15px;
+  z-index: 2;
+}
+.da-guilds > .guild-1EfMGQ.unread-qLkInr.selected-ML3OIq::before,
+.da-guilds > .guild-1EfMGQ.unread-qLkInr:hover::before {
+  background-image: url("https://i.imgur.com/VwWhoEy.png");
+}
+.da-guilds > .guild-1EfMGQ.audio-3vVhBi::after,
+.da-guilds > .guild-1EfMGQ.da-video::after {
+  background-color: #4d493e;
+  right: 4px;
+  top: 7px;
+  width: 20px;
+  height: 20px;
+}
+.da-guilds > .guild-1EfMGQ.audio-3vVhBi:hover::after,
+.da-guilds > .guild-1EfMGQ.da-video:hover::after {
+  background-color: transparent;
+}
+.da-guilds > .guild-1EfMGQ .da-badge {
+  background-color: transparent;
+  bottom: -15px;
+  right: 3px;
+  color: #4d493e;
+}
+.da-guilds .da-friendsOnline {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
-  color: #4d493e !important;
+  color: #4d493e;
 }
-/* ===== Guild DMs ===== */
-span[class*="dms-"] {
+.da-guilds .da-dms {
   background-color: #c8c2aa;
+  height: auto;
 }
-span[class*="dms-"] div[class*="guildInner-"] a {
+.da-guilds .da-dms .da-guild,
+.da-guilds .da-dms .da-guildInner,
+.da-guilds .da-dms .da-guildInner a,
+.da-guilds .da-dms .da-avatarSmall,
+.da-guilds .da-dms .da-wrapper {
+  height: 35px;
   width: 100%;
 }
-/* ===== Guild seperator ===== */
-div[class*="guildSeparator-"] {
+.da-guilds .da-guildSeparator {
   width: 100%;
 }
-/* ===== Notifications ===== */
-div[class*="guild-"] div[class*="avatar-small-"],
-div[class*="guild-"] div[class*="avatar-small-"] a {
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-}
-/* ===== New guild ===== */
-button[class*="guildsAdd-"] {
-  border-radius: 0;
-  background-color: #c8c2aa !important;
-  color: #4d493e !important;
-  border: 1px solid transparent !important;
-  border-left-width: 0 !important;
-  border-right-width: 0 !important;
-}
-button[class*="guildsAdd-"]:hover {
-  border-color: #4d493e !important;
-  background-color: transparent;
-  color: #c8c2aa !important;
-}
-button[class*="guildsAdd-"]:hover::before {
-  width: 100%;
-}
-span[class*="guildsAddInner-"] {
-  top: -5px;
-}
-/* ===== Tooltips ===== */
 .tooltip {
-  background-color: #4d493e !important;
-  color: #c8c2aa !important;
+  background-color: #4d493e;
+  color: #c8c2aa;
 }
 .tooltip.tooltip-top::after {
-  border-top-color: #4d493e !important;
+  border-top-color: #4d493e;
 }
 .tooltip.tooltip-bottom::after {
-  border-bottom-color: #4d493e !important;
+  border-bottom-color: #4d493e;
 }
 .tooltip.tooltip-right::after {
-  border-right-color: #4d493e !important;
+  border-right-color: #4d493e;
 }
 .tooltip.tooltip-left::after {
-  border-left-color: #4d493e !important;
+  border-left-color: #4d493e;
 }
-/* ===== Guild speaking icon ===== */
-div[class*="guild-"][class*="audio-"] div[class*="guildInner-"]::after,
-div[class*="guild-"][class*="video-"] div[class*="guildInner-"]::after {
-  right: 4px !important;
-  top: 5px !important;
-  background-color: #4d493e !important;
-}
-/* ===== Guild placeholder ===== */
-div[class*="guildPlaceholder-"] {
-  border-radius: 0;
-  border: none;
-  background-color: #4d493e;
-}
-/* ===== Windows buttons ===== */
-div[class*="winButtonClose-"] svg polygon {
-  fill: #4d493e;
-}
-div[class*="winButtonClose-"]:hover {
-  background-color: #4d493e;
-}
-div[class*="winButtonClose-"]:hover svg polygon {
-  fill: #c8c2aa;
-}
-div[class*="winButtonMinMax-"] svg[name="TitleBarMaximize"] rect {
-  stroke: #4d493e;
-}
-div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMaximize"] rect {
-  stroke: #c8c2aa;
-}
-div[class*="winButtonMinMax-"] svg[name="TitleBarMinimize"] rect {
-  fill: #4d493e;
-}
-div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMinimize"] rect {
-  fill: #c8c2aa;
-}
-/* ===== Wordmark ===== */
-div[class*="wordmark-"] svg path {
-  fill: #4d493e;
-}
-div[class*="titleBar-"]::after {
+.da-titleBar::after {
   color: #fff;
   position: absolute;
   left: 0;
 }
-/* ===== Unread message indicator ===== */
-div[class*="unread-"] {
-  box-shadow: none !important;
+.da-titleBar .da-wordmark svg path {
+  fill: #4d493e;
 }
-/* ===== Channel container ===== */
-div[class*="channels-"] {
-  background-color: #c8c2aa !important;
+.da-titleBar .da-winButton:hover {
+  background-color: #4d493e;
 }
-header[class*="header-"] {
-  background-color: #4d493e !important;
+.da-titleBar .da-winButton:hover svg[name="TitleBarMinimize"] rect,
+.da-titleBar .da-winButton:hover svg polygon {
+  fill: #c8c2aa;
+}
+.da-titleBar .da-winButton:hover svg[name="TitleBarMaximize"] rect {
+  stroke: #c8c2aa;
+}
+.da-titleBar .da-winButton svg[name="TitleBarMinimize"] rect,
+.da-titleBar .da-winButton svg polygon {
+  fill: #4d493e;
+}
+.da-titleBar .da-winButton svg[name="TitleBarMaximize"] rect {
+  stroke: #4d493e;
+}
+.da-channels {
+  background-color: #c8c2aa;
+}
+.da-channels .da-header {
+  background-color: #4d493e;
   color: #c8c2aa;
   box-shadow: none;
   border-right: 1px solid #c8c2aa;
 }
-header[class*="header-"] svg g path:nth-child(2),
-header[class*="header-"] svg g path:nth-child(3) {
+.da-channels .da-header svg g path:nth-child(2),
+.da-channels .da-header svg g path:nth-child(3) {
   stroke: #c8c2aa;
 }
-/* ===== Channels ===== */
-div[class*="channels-"] div[class*="content-"] {
+.da-channels .content-20Aix8 {
   margin-left: 0;
   border-radius: 0;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
 }
-div[class*="channels-"] div[class*="content-"]::before {
+.da-channels .content-20Aix8::before {
   content: "";
   position: absolute;
   left: 0;
@@ -275,62 +259,371 @@ div[class*="channels-"] div[class*="content-"]::before {
   background-color: #4d493e;
   transition: width 0.2s;
 }
-div[class*="channels-"] div[class*="contentSelectedText-"],
-div[class*="channels-"] div[class*="contentHoveredText-"],
-div[class*="channels-"] div[class*="contentConnectedVoice-"],
-div[class*="channels-"] div[class*="contentHoveredVoice-"] {
-  border-color: #4d493e !important;
+.da-channels .content-20Aix8 svg {
+  color: #4d493e;
+}
+.da-channels .content-20Aix8.contentSelectedText-3wUhMi,
+.da-channels .content-20Aix8.contentHoveredText-2D9B-x,
+.da-channels .content-20Aix8.contentConnectedVoice-qL-YrL,
+.da-channels .content-20Aix8.contentHoveredVoice-3p_NEO {
+  border-color: #4d493e;
   background-color: transparent;
 }
-div[class*="channels-"] div[class*="contentSelectedText-"]::before,
-div[class*="channels-"] div[class*="contentHoveredText-"]::before,
-div[class*="channels-"] div[class*="contentConnectedVoice-"]::before,
-div[class*="channels-"] div[class*="contentHoveredVoice-"]::before {
+.da-channels .content-20Aix8.contentSelectedText-3wUhMi::before,
+.da-channels .content-20Aix8.contentHoveredText-2D9B-x::before,
+.da-channels .content-20Aix8.contentConnectedVoice-qL-YrL::before,
+.da-channels .content-20Aix8.contentHoveredVoice-3p_NEO::before {
   width: 100%;
 }
-div[class*="name-"] {
+.da-channels .content-20Aix8.contentSelectedText-3wUhMi .da-nameUnreadText,
+.da-channels .content-20Aix8.contentHoveredText-2D9B-x .da-nameUnreadText,
+.da-channels .content-20Aix8.contentConnectedVoice-qL-YrL .da-nameUnreadText,
+.da-channels .content-20Aix8.contentHoveredVoice-3p_NEO .da-nameUnreadText {
+  color: #c8c2aa;
+}
+.da-channels .content-20Aix8.contentSelectedText-3wUhMi svg,
+.da-channels .content-20Aix8.contentHoveredText-2D9B-x svg,
+.da-channels .content-20Aix8.contentConnectedVoice-qL-YrL svg,
+.da-channels .content-20Aix8.contentHoveredVoice-3p_NEO svg {
+  color: #c8c2aa;
+}
+.da-channels .content-20Aix8 .name-3M0b8v {
   color: #4d493e;
   z-index: 2;
 }
-div[class*="name-"][class*="nameConnectedText-"],
-div[class*="name-"][class*="nameConnectedVoice-"],
-div[class*="name-"][class*="nameSelectedText-"],
-div[class*="name-"][class*="nameSelectedVoice-"],
-div[class*="name-"][class*="nameHoveredText-"],
-div[class*="name-"][class*="nameHoveredVoice-"],
-div[class*="contentHoveredText-"] div[class*="name-"][class*="nameUnreadText-"] {
+.da-channels .content-20Aix8 .name-3M0b8v.da-nameConnectedText,
+.da-channels .content-20Aix8 .name-3M0b8v.da-nameConnectedVoice,
+.da-channels .content-20Aix8 .name-3M0b8v.nameSelectedText-sp_EUw,
+.da-channels .content-20Aix8 .name-3M0b8v.da-nameSelectedVoice,
+.da-channels .content-20Aix8 .name-3M0b8v.nameHoveredText-1uO31y,
+.da-channels .content-20Aix8 .name-3M0b8v.nameHoveredVoice-YJ1Vfd {
   color: #c8c2aa;
 }
-/* ===== Channel groups ===== */
-svg[class*="iconDefault-"] path,
-svg[class*="iconHovered-"] path,
-svg[class*="iconHoveredCollapsed-"] path,
-svg[class*="iconMuted-"] path,
-svg[class*="iconUnread-"] path,
-svg[class*="iconCollapsed-"] path {
+.da-channels .da-containerDefault .iconDefault-3Gr8d2 path,
+.da-channels .da-containerDefault .iconHovered-2L3-fB path,
+.da-channels .da-containerDefault .iconHoveredCollapsed-3caIIZ path,
+.da-channels .da-containerDefault .da-iconMuted path,
+.da-channels .da-containerDefault .da-iconUnread path,
+.da-channels .da-containerDefault .iconCollapsed-3hFp_8 path {
   fill: #4d493e;
 }
-div[class*="nameDefault-"],
-div[class*="nameHovered-"],
-div[class*="nameHoveredCollapsed-"],
-div[class*="nameCollapsed-"] {
+.da-channels .da-containerDefault .nameDefault-2DI02H,
+.da-channels .da-containerDefault .nameHovered-1gxhWH,
+.da-channels .da-containerDefault .nameHoveredCollapsed-2orEWB,
+.da-channels .da-containerDefault .nameCollapsed-34uFWo {
   color: #4d493e;
 }
-/* ===== Icons ===== */
-svg[class*="icon-"] path {
-  fill: #4d493e;
-  opacity: 1;
-}
-svg[class*="icon-"][class*="colorConnectedText-"] path,
-svg[class*="icon-"][class*="colorConnectedVoice-"] path,
-svg[class*="icon-"][class*="colorHoveredText-"] path,
-svg[class*="icon-"][class*="colorHoveredVoice-"] path,
-svg[class*="icon-"][class*="colorLockedText-"] path,
-svg[class*="icon-"][class*="colorLockedVoice-"] path,
-svg[class*="icon-"][class*="colorSelectedText-"] path,
-svg[class*="icon-"][class*="colorSelectedVoice-"] path,
-div[class*="actionIcon-"] svg path {
+.da-channels .da-icon.da-colorConnectedText path,
+.da-channels .da-icon.da-colorConnectedVoice path,
+.da-channels .da-icon.da-colorHoveredText path,
+.da-channels .da-icon.da-colorHoveredVoice path,
+.da-channels .da-icon.da-colorLockedText path,
+.da-channels .da-icon.da-colorLockedVoice path,
+.da-channels .da-icon.da-colorSelectedText path,
+.da-channels .da-icon.da-colorSelectedVoice path {
   fill: #c8c2aa;
+}
+.da-channels .da-icon path {
+  fill: #4d493e;
+}
+.da-channels .da-actionIcon svg path {
+  fill: #c8c2aa;
+}
+.da-channels .container-2Thooq {
+  background-color: #4d493e;
+}
+.da-channels .container-2Thooq .username {
+  color: #c8c2aa;
+}
+.da-chat .da-titleWrapper {
+  background-color: #4d493e;
+}
+.da-chat .da-titleWrapper .da-title {
+  box-shadow: none;
+}
+.da-chat .da-titleWrapper .da-title .da-topic,
+.da-chat .da-titleWrapper .da-title .da-channelName {
+  color: #c8c2aa;
+}
+.da-chat .da-titleWrapper .da-title .da-topic svg path,
+.da-chat .da-titleWrapper .da-title .da-channelName svg path {
+  fill: #c8c2aa;
+}
+.da-chat .da-titleWrapper .da-title .da-iconForeground {
+  fill: #c8c2aa;
+}
+.da-chat .da-messages .da-timestampCozy {
+  color: #4d493e;
+}
+.da-chat .da-messages .da-divider .da-dividerContent {
+  color: #4d493e;
+}
+.da-chat .da-messages .da-divider::before,
+.da-chat .da-messages .da-divider::after {
+  border-color: #4d493e;
+}
+.da-chat .da-messages .wrapper-3WhCwL,
+.da-chat .da-messages .da-mention {
+  background-color: #4d493e;
+  color: #c8c2aa;
+}
+.da-chat .da-messages .da-wrapperAudio,
+.da-chat .da-messages .da-attachment,
+.da-chat .da-messages .da-embed,
+.da-chat .da-messages .da-markup pre,
+.da-chat .da-messages .da-markup code,
+.da-chat .da-messages .da-markup code.inline,
+.da-chat .da-messages .wrapper-35wsBm {
+  border-radius: 0;
+  border-color: #4d493e;
+  background-color: #4d493e;
+}
+.da-chat .da-messages .da-metadataIcon,
+.da-chat .da-messages .da-downloadButton,
+.da-chat .da-messages .da-markup code,
+.da-chat .da-messages .wrapper-35wsBm * {
+  color: #c8c2aa;
+}
+.da-chat .da-messages .da-buttonContainer div {
+  visibility: visible;
+}
+.da-chat .da-messages .da-reactions .da-reaction {
+  background-color: #4d493e;
+  border-radius: 0;
+  filter: sepia(50%);
+  transition: all 0.2s;
+}
+.da-chat .da-messages .da-reactions .da-reaction:hover {
+  filter: sepia(0%);
+}
+.da-chat .da-messages .da-reactions .da-reaction .da-reactionCount {
+  color: #c8c2aa;
+}
+.da-chat form {
+  background-color: #4d493e !important;
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 1px solid #c8c2aa;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.da-chat form .da-channelTextArea .da-inner {
+  border-radius: 0;
+}
+.da-chat form .da-channelTextArea .da-inner .da-textArea {
+  color: #c8c2aa;
+}
+.da-chat form .da-channelTextArea .da-inner .da-contents svg path {
+  fill: #c8c2aa;
+}
+.da-chat form .da-channelTextArea .da-inner .da-contents .sprite-2iCowe {
+  filter: sepia(100%);
+}
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap .scroller::webkit-scrollbar,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap .scroller::webkit-scrollbar,
+.scroller-wrap .scroller::webkit-scrollbar {
+  height: 8px;
+  width: 5px;
+}
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-corner,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-corner,
+.scroller-wrap .scroller::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-thumb,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-thumb,
+.scroller-wrap .scroller::-webkit-scrollbar-thumb {
+  background-color: rgba(32,34,37,0.6);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: move;
+}
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-track,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-track,
+.scroller-wrap .scroller::-webkit-scrollbar-track {
+  visibility: hidden;
+  background-clip: padding-box;
+  border-radius: 7.5px;
+  border-style: solid;
+  background-color: transparent;
+  border: 3px solid transparent;
+}
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-track-piece,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap .scroller::-webkit-scrollbar-track-piece,
+.scroller-wrap .scroller::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  border-color: transparent;
+}
+.da-membersWrap .da-members {
+  background-color: transparent;
+}
+.da-membersWrap .da-members .member-3W1lQa {
+  position: relative;
+  margin-left: 0;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  color: #4d493e;
+}
+.da-membersWrap .da-members .member-3W1lQa svg .da-activityIconForeground {
+  fill: #4d493e;
+}
+.da-membersWrap .da-members .member-3W1lQa:hover,
+.da-membersWrap .da-members .member-3W1lQa.popout-open {
+  border-color: #4d493e;
+}
+.da-membersWrap .da-members .member-3W1lQa:hover .da-content,
+.da-membersWrap .da-members .member-3W1lQa.popout-open .da-content,
+.da-membersWrap .da-members .member-3W1lQa:hover .da-activityText,
+.da-membersWrap .da-members .member-3W1lQa.popout-open .da-activityText,
+.da-membersWrap .da-members .member-3W1lQa:hover svg .da-activityIconForeground,
+.da-membersWrap .da-members .member-3W1lQa.popout-open svg .da-activityIconForeground {
+  color: #c8c2aa;
+  fill: #c8c2aa;
+  background-color: transparent;
+  z-index: 2;
+}
+.da-membersWrap .da-members .member-3W1lQa:hover::before,
+.da-membersWrap .da-members .member-3W1lQa.popout-open::before {
+  width: 100%;
+}
+.da-membersWrap .da-members .member-3W1lQa::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 0;
+  background-color: #4d493e;
+  transition: width 0.2s;
+}
+.da-membersWrap .da-members .member-3W1lQa .da-bot {
+  border-radius: 0;
+  filter: sepia(75%);
+}
+.da-membersWrap .da-members .da-membersGroup,
+.da-membersWrap .da-members .da-activityText {
+  color: #4d493e;
+}
+.theme-dark.da-popouts .da-container,
+.theme-light.da-popouts .da-container {
+  background-color: #4d493e;
+  border-radius: 0;
+}
+.theme-dark.da-popouts .da-container .da-option:after,
+.theme-light.da-popouts .da-container .da-option:after {
+  background-image: none;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap,
+.theme-light.da-popouts .da-messagesPopoutWrap {
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-header,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-header {
+  display: none;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper {
+  background-color: #c8c2aa;
+  border: 0;
+  border-radius: 0;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy {
+  background-color: #c8c2aa;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-timestampCozy,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-timestampCozy {
+  color: #4d493e;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-wrapperAudio,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-wrapperAudio,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-attachment,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-attachment,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-embed,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-embed,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup pre,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup pre,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code.inline,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code.inline,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .wrapper-35wsBm,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .wrapper-35wsBm {
+  border-radius: 0;
+  border-color: #4d493e;
+  background-color: #4d493e;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-metadataIcon,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-metadataIcon,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-downloadButton,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-downloadButton,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-markup code,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .wrapper-35wsBm *,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .wrapper-35wsBm * {
+  color: #c8c2aa;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons {
+  background-color: transparent;
+  box-shadow: none;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-jumpButton,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-jumpButton,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-closeButton,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-closeButton {
+  background-color: #4d493e;
+  border-radius: 0;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-closeButton,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy .da-actionButtons .da-closeButton {
+  height: 18px;
+  margin-top: 0;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy:hover .da-closeButton,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-messageGroupWrapper .da-containerCozy:hover .da-closeButton {
+  opacity: 0.9;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-channelSeparator,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-channelSeparator {
+  background-color: #c8c2aa;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 10px;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-channelName,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-channelName,
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-guildName,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-guildName {
+  color: #4d493e;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-guildName,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-channelSeparator .da-guildName {
+  opacity: 0.3;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap {
+  background-color: #c8c2aa;
+}
+.theme-dark.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap .da-body,
+.theme-light.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap .da-body {
+  color: #4d493e;
+}
+/* ===== Notifications ===== */
+div[class*="guild-"] div[class*="avatar-small-"],
+div[class*="guild-"] div[class*="avatar-small-"] a {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+/* ===== Guild placeholder ===== */
+div[class*="guildPlaceholder-"] {
+  border-radius: 0;
+  border: none;
+  background-color: #4d493e;
 }
 /* ===== Connection status ===== */
 .container-1UB9sr {
@@ -340,186 +633,9 @@ div[class*="actionIcon-"] svg path {
 .container-1UB9sr a[class*="channel-"] {
   color: #c8c2aa;
 }
-/* ===== User / Settings ===== */
-.container-2Thooq {
-  background-color: #4d493e !important;
-}
-.username {
-  color: #c8c2aa;
-}
 /* ===== Content text ===== */
 div[class*="markup-"] {
   color: #4d493e !important;
-}
-/* ===== Content header ===== */
-div[class*="chat-"] div[class*="titleWrapper-"] {
-  background-color: #4d493e;
-}
-div[class*="chat-"] div[class*="title-"] {
-  box-shadow: none !important;
-}
-div[class*="chat-"] span[class*="channelName-"],
-div[class*="chat-"] span[class*="topic-"] {
-  color: #c8c2aa;
-}
-span[class*="channelName-"] svg path,
-span[class*="iconMargin-"] svg[name="NotificationBell"] g path,
-span[class*="iconMargin-"] svg[name="Pin"] g path.iconForeground-3y9f0B,
-span[class*="iconMargin-"] svg[name="People"] g path,
-span[class*="iconMargin-"] svg[name="Mention"] path,
-span[class*="iconMargin-"] svg[name="QuestionMark"] path {
-  fill: #c8c2aa;
-}
-/* ===== Content body ===== */
-time[class*="timestampCozy-"] {
-  color: #4d493e !important;
-}
-div[class*="chat-"] div[class*="divider-"] > span,
-div[class*="chat-"] div[class*="divider-"]::before {
-  color: #c8c2aa !important;
-  background-color: #4d493e;
-  border-radius: 0;
-}
-div[class*="chat-"] .wrapper-3WhCwL,
-div[class*="chat-"] .mention {
-  background-color: #4d493e;
-  color: #c8c2aa;
-}
-div[class*="chat-"] div[class*="wrapperAudio-"],
-div[class*="chat-"] div[class*="attachment-"],
-div[class*="chat-"] div[class*="embed-"],
-div[class*="chat-"] div[class*="markup-"] pre,
-div[class*="chat-"] div[class*="markup-"] code,
-div[class*="chat-"] div[class*="markup-"] code.inline,
-div[class*="chat-"] .wrapper-35wsBm {
-  border-radius: 0;
-  border-color: #4d493e;
-  background-color: #4d493e;
-}
-div[class*="chat-"] div[class*="wrapperAudio-"] div[class*="audioMetadata-"] svg[class*="metadataIcon-"],
-div[class*="chat-"] div[class*="attachment-"] svg[class*="downloadButton-"],
-div[class*="chat-"] div[class*="markup-"] code,
-div[class*="chat-"] .wrapper-35wsBm * {
-  color: #c8c2aa;
-}
-div[class*="chat-"] div[class*="buttonContainer-"] div[class*="btn-"],
-div[class*="chat-"] div[class*="buttonContainer-"] div[class*="button-"] {
-  visibility: visible;
-}
-/* ===== Content scrollbar ===== */
-.scroller-wrap .scroller::-webkit-scrollbar {
-  height: 8px;
-  width: 5px;
-}
-.scroller-wrap .scroller::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-.scroller-wrap .scroller::-webkit-scrollbar-thumb {
-  background-color: rgba(32,34,37,0.6);
-  border: 2px solid transparent;
-  border-radius: 4px;
-  cursor: move;
-}
-.scroller-wrap .scroller::-webkit-scrollbar-track {
-  visibility: hidden;
-  background-clip: padding-box;
-  border-radius: 7.5px;
-  border-style: solid;
-  background-color: transparent;
-  border: 3px solid transparent;
-}
-.scroller-wrap .scroller::-webkit-scrollbar-track-piece {
-  background-color: transparent !important;
-  border-color: transparent !important;
-}
-/* ===== Content form ===== */
-div[class*="chat-"] form {
-  background: #4d493e !important;
-  margin-left: 0;
-  margin-right: 0;
-  border-left: 1px solid #c8c2aa;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] {
-  border-radius: 0;
-}
-div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] textarea[class*="textArea-"] {
-  color: #c8c2aa;
-}
-div[class*="chat-"] div[class*="contents-"] svg path {
-  fill: #c8c2aa;
-}
-div[class*="chat-"] div[class*="contents-"] div[class*="sprite-"] {
-  filter: sepia(100%);
-}
-/* ===== Member list ===== */
-div[class*="membersWrap-"] div[class*="members-"] {
-  background-color: #c8c2aa;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] {
-  position: relative;
-  margin-left: 0;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="membersGroup-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] svg path[class*="activityIconForeground-"] {
-  color: #4d493e;
-  fill: #4d493e;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"] {
-  z-index: 2;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="content-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover svg path[class*="activityIconForeground-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open svg path[class*="activityIconForeground-"] {
-  color: #c8c2aa;
-  fill: #c8c2aa;
-  background-color: transparent;
-  z-index: 2;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 3px;
-  bottom: 3px;
-  width: 0;
-  background-color: #4d493e;
-  transition: width 0.2s;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover,
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open {
-  border-color: #4d493e;
-}
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover::before,
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open::before {
-  width: 100%;
-}
-/* ===== Bots ===== */
-span[class*="bot-"] {
-  border-radius: 0;
-  filter: sepia(75%);
-}
-/* ===== Reactions ===== */
-.reactions .reaction {
-  background-color: #4d493e !important;
-  border-radius: 0;
-  filter: sepia(50%);
-  transition: all 0.2s;
-}
-.reactions .reaction:hover {
-  filter: sepia(0%);
-}
-.reactions .reaction .reaction-count {
-  color: #c8c2aa !important;
 }
 /* ===== Setting backgrounds to transparent ===== */
 .theme-dark .layer-3QrUeG,

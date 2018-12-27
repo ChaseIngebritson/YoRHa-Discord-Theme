@@ -25,3 +25,9 @@
 ## v0.3.1
 ### Fixed
 - Updated the README screenshot
+
+## v0.4
+### Added
+- Theming for popouts
+### Changed
+- Converted the theme to be built using Stylus and Webpack

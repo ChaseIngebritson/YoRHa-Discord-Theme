@@ -1,11 +1,13 @@
+@css {
+    //META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.4","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
+}
+
 // Variables
 
 light-color = #C8C2AA;
 dark-color = #4D493E;
 
 // Mixins
-
-//META{"name":"Clean Dark Wallpaper Edition","description":"Simple & clean dark theme. Basic enhancements. User settings for variety. Transparent with wallpaper. Please use the support server listed below if you need any help.","author":"Satoru","version":"0.5","website":"http://discord.gg/fjvwb95"}*//{}
 
 background-fill() { // Fills in the background of an element with a dark box
     content: "";
@@ -18,6 +20,21 @@ background-fill() { // Fills in the background of an element with a dark box
     transition: width .2s;
 }
 
+spin-animation(duration) {
+    animation-name: spin;
+    animation-duration: duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+// Keyframes
+
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+// Begin Styles
 
 .da-appMount {
     background: url(https://i.imgur.com/PmYI9Mu.jpg);
@@ -26,7 +43,7 @@ background-fill() { // Fills in the background of an element with a dark box
     background-position: center;
 }
 
-/* ===== Sidebar wrapper ===== */
+// ===== Sidebar Wrapper =====
 
 .da-guildsWrapper {
     width: 100px;
@@ -38,170 +55,719 @@ background-fill() { // Fills in the background of an element with a dark box
 
 .da-guilds {
     padding-left: 0;
+
+    // ===== Guild icon =====
+    > .guild-1EfMGQ {
+        height: 35px;
+        overflow: hidden;
+        width: 100%;
+        background: light-color;
+        border: 1px solid transparent;
+        margin-top: 15px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: transparent;
+            border-color: dark-color;
+            color: light-color;
+
+            .da-guildInner::before {
+                width: 100%;
+            }
+
+            .da-badge {
+                color: light-color;
+            }
+        }
+
+        & > div,
+        .da-guildInner,
+        .da-guildInner a {
+            height: 100%;
+            width: auto;
+        }
+
+        .da-guildIcon {
+            height: 100%;
+            width: 35px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.2s;
+            filter: sepia(75);
+        }
+
+        .da-guildInner::before,
+        &.da-guildsAdd::before {
+            background-fill();
+            z-index: -1;
+        }
+
+        // ===== Currently selected guild =====
+        &.selected-ML3OIq {
+            border-color: dark-color;
+            background-color: transparent;
+
+            .da-guildIcon {
+                filter: sepia(0%);
+            }
+
+            .da-guildInner::before {
+                width: 100%;
+            }
+        }
+
+        // ===== Home icon =====
+        &:nth-child(1) {
+            width: 67px;
+            height: 75px;
+            background-color: transparent;
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+
+            spin-animation(4s);
+
+            &.selected-ML3OIq,
+            &:hover {
+                border-color: transparent;
+                animation: none;
+            }
+
+            .da-guildInner::before {
+                background-color: transparent;
+            }
+
+             a {
+                background-image: url(https://i.imgur.com/yyiIoTm.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            svg {
+                display: none;
+            }
+        }
+
+        // ===== Guild Public icon =====
+        &:nth-child(2) {
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            border-left-color: transparent;
+            border-right-color: transparent;
+
+            a {
+                color: dark-color;
+            }
+
+            &:hover a {
+                color: light-color;
+            }
+        }
+
+        // ===== New guild =====
+        &.da-guildsAdd {
+            border-radius: 0;
+            background-color: light-color;
+            color: dark-color;
+            border: 1px solid transparent;
+            border-left-width: 0;
+            border-right-width: 0;
+
+            &:hover {
+                border-color: dark-color;
+                background-color: transparent;
+                color: light-color;
+
+                &::before {
+                    width: 100%;
+                }
+            }
+
+            .da-guildsAddInner {
+                top: -5px;
+            }
+        }
+
+        // ===== Unread guild =====
+        &.unread-qLkInr {
+            &::before {
+                left: 8px;
+                background: transparent;
+                background-image: url(https://i.imgur.com/pb3CYol.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin-top: -18px;
+                font-size: 1.5em;
+                color: dark-color;
+                height: 100%;
+                width: 15px;
+                z-index: 2;
+            }
+
+            &.selected-ML3OIq::before,
+            &:hover::before {
+                background-image: url(https://i.imgur.com/VwWhoEy.png);
+            }
+        }
+
+        // ===== Active Indicator =====
+        &.audio-3vVhBi,
+        &.da-video { // TODO: This probably needs to be changed
+            &::after {
+                background-color: dark-color;
+                right: 4px;
+                top: 7px;
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover {
+                &::after {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .da-badge {
+            background-color: transparent;
+            bottom: -15px;
+            right: 3px;
+            color: dark-color;
+        }
+    }
+
+    // ===== Guild Friends online =====
+    .da-friendsOnline {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        color: dark-color;
+    }
+
+    // ===== Guild DMs =====
+    .da-dms {
+        background-color: light-color;
+        height: auto;
+
+        .da-guild,
+        .da-guildInner,
+        .da-guildInner a,
+        .da-avatarSmall,
+        .da-wrapper {
+            height: 35px;
+            width: 100%;
+        }
+    }
+
+    // ===== Guild seperator =====
+    .da-guildSeparator {
+        width: 100%;
+    }
 }
 
-/* ===== Guild icon ===== */
+// ===== Tooltips =====
+.tooltip {
+    background-color: dark-color;
+    color: light-color;
 
-.guild-1EfMGQ {
-    height: 35px;
-    overflow: hidden;
-    width: 100%;
-    background: #C8C2AA;
-    border: 1px solid transparent;
-    margin-top: 15px !important;
-    transition: all 0.2s;
+    &.tooltip-top::after {
+        border-top-color: dark-color;
+    }
+
+    &.tooltip-bottom::after {
+        border-bottom-color: dark-color;
+    }
+
+    &.tooltip-right::after {
+        border-right-color: dark-color;
+    }
+
+    &.tooltip-left::after {
+        border-left-color: dark-color;
+    }
 }
 
-.guild-1EfMGQ > div,
-.da-guildInner,
-.guild-1EfMGQ .da-guildInner a {
-    height: 100%;
-    width: auto;
+// ===== Title Bar =====
+.da-titleBar {
+    &::after {
+        color:#fff;
+        position:absolute;
+        left:0
+    }
+
+    // ===== Wordmark =====
+    .da-wordmark svg path {
+        fill: dark-color;
+    }
+
+    // ===== Windows buttons =====
+    .da-winButton {
+        &:hover {
+            background-color: dark-color;
+
+            svg {
+                &[name="TitleBarMinimize"] rect,
+                polygon {
+                    fill: light-color;
+                }
+
+                &[name="TitleBarMaximize"] rect {
+                    stroke: light-color;
+                }
+            }
+        }
+
+        svg {
+            &[name="TitleBarMinimize"] rect,
+            polygon {
+                fill: dark-color;
+            }
+
+            &[name="TitleBarMaximize"] rect {
+                stroke: dark-color;
+            }
+        }
+    }
 }
 
-.guild-1EfMGQ .da-guildIcon {
-    height: 100%;
-    width: 35px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 0.2s;
-    filter: sepia(75);
+// ===== Channel Container =====
+.da-channels {
+    background-color: light-color;
+
+    // ===== Channels Header =====
+    .da-header {
+        background-color: dark-color;
+        color: light-color;
+        box-shadow: none;
+        border-right: 1px solid light-color;
+
+        svg g path {
+            &:nth-child(2),
+            &:nth-child(3) {
+                stroke: light-color;
+            }
+        }
+    }
+
+    // ===== Channels =====
+    .content-20Aix8 {
+        margin-left: 0;
+        border-radius:0;
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+
+        &::before {
+            background-fill()
+        }
+
+        svg {
+            color: dark-color;
+        }
+
+        &.contentSelectedText-3wUhMi,
+        &.contentHoveredText-2D9B-x,
+        &.contentConnectedVoice-qL-YrL,
+        &.contentHoveredVoice-3p_NEO {
+            border-color: dark-color;
+            background-color: transparent;
+
+            &::before {
+                width: 100%;
+            }
+
+            // TODO: Fix the classes
+            .da-nameUnreadText {
+                color: light-color;
+            }
+
+            svg {
+                color: light-color;
+            }
+        }
+
+        .name-3M0b8v {
+            color: dark-color;
+            z-index: 2;
+
+            &.da-nameConnectedText,
+            &.da-nameConnectedVoice,
+            &.nameSelectedText-sp_EUw,
+            &.da-nameSelectedVoice,
+            &.nameHoveredText-1uO31y,
+            &.nameHoveredVoice-YJ1Vfd {
+                color: light-color;
+            }
+        }
+    }
+
+    // ===== Channel Groups =====
+    .da-containerDefault {
+        // TODO: Fix the classes
+        .iconDefault-3Gr8d2,
+        .iconHovered-2L3-fB
+        .iconHoveredCollapsed-3caIIZ,
+        .da-iconMuted,
+        .da-iconUnread,
+        .iconCollapsed-3hFp_8 {
+            path {
+                fill: dark-color;
+            }
+        }
+
+        .nameDefault-2DI02H,
+        .nameHovered-1gxhWH
+        .nameHoveredCollapsed-2orEWB
+        .nameCollapsed-34uFWo {
+            color: dark-color;
+        }
+    }
+
+    // ===== Channel Icons =====
+    .da-icon {
+        &.da-colorConnectedText,
+        &.da-colorConnectedVoice,
+        &.da-colorHoveredText,
+        &.da-colorHoveredVoice,
+        &.da-colorLockedText,
+        &.da-colorLockedVoice,
+        &.da-colorSelectedText,
+        &.da-colorSelectedVoice {
+            path {
+                fill: light-color;
+            }
+        }
+
+        path {
+            fill: dark-color;
+        }
+    }
+    .da-actionIcon svg path {
+        fill: light-color;
+    }
+
+    // ===== User/Settings =====
+    .container-2Thooq {
+        background-color: dark-color;
+
+        .username {
+            color: light-color;
+        }
+    }
 }
 
-.guild-1EfMGQ:hover {
-    background-color: transparent;
-    border-color: #4D493E;
-    color: #C8C2AA;
-}
-.guild-1EfMGQ:hover .da-guildInner::before {
-    width: 100%;
-}
+// ===== Chat Container =====
+.da-chat {
 
-.guild-1EfMGQ .da-guildInner::before,
-.da-guildsAdd::before {
-    background-fill()
-    z-index: -1;
-}
+    // ===== Title Bar =====
+    .da-titleWrapper {
+        background-color: dark-color;
 
-/* ===== Currently selected guild ===== */
+        .da-title {
+            box-shadow: none;
 
-.guild-1EfMGQ.selected-ML3OIq {
-    border-color: #4D493E;
-    background-color: transparent;
-}
-.guild-1EfMGQ.selected-ML3OIq .da-guildIcon {
-    filter: sepia(0%);
-}
-.guild-1EfMGQ.selected-ML3OIq .da-guildInner::before {
-    width: 100%;
-}
+            .da-topic,
+            .da-channelName {
+                color: light-color;
 
-/* ===== Unread guild ===== */
+                svg path {
+                    fill: light-color;
+                }
+            }
 
-div[class*="theme-"] .guild-1EfMGQ.da-unread::before,
-.guild-1EfMGQ.da-unread::before {
-    left: 8px;
-    background: transparent;
-    background-image: url(https://i.imgur.com/pb3CYol.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-top: -18px;
-    font-size: 1.5em;
-    color: #4D493E;
-    height: 100%;
-    width: 15px;
-}
+            .da-iconForeground {
+                fill: light-color;
+            }
+        }
+    }
 
-div[class*="theme-"] .guild-1EfMGQ.da-unread:hover::before,
-.guild-1EfMGQ.da-unread::before,
-.guild-1EfMGQ.selected-ML3OIq.da-unread::before,
-div[class*="theme-"] .guild-1EfMGQ.selected-ML3OIq.da-unread::before {
-    background-image: url(https://i.imgur.com/VwWhoEy.png);
-}
+    // ===== Message Content =====
+    .da-messages {
+        .da-timestampCozy {
+            color: dark-color;
+        }
 
-/* ===== Home icon ===== */
+        .da-divider {
+            .da-dividerContent {
+                color: dark-color;
+            }
 
-.guild-1EfMGQ > .guild-1EfMGQ:nth-child(1) {
-    width: 67px;
-    height: 75px;
-    background-color: transparent;
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0 !important;
+            &::before,
+            &::after {
+                border-color: dark-color;
+            }
+        }
 
-    animation-name: spin;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
+        .wrapper-3WhCwL,
+        .da-mention {
+            background-color: dark-color;
+            color: light-color;
+        }
 
-.da-guilds > .guild-1EfMGQ:nth-child(1).selected-ML3OIq,
-.da-guilds > .guild-1EfMGQ:nth-child(1):hover {
-    border-color: transparent;
-    animation: none;
-}
-.da-guilds > .guild-1EfMGQ:nth-child(1) .da-guildInner::before {
-    background-color: transparent;
-}
+        .da-wrapperAudio,
+        .da-attachment,
+        .da-embed,
+        .da-markup pre,
+        .da-markup code,
+        .da-markup code.inline,
+        .wrapper-35wsBm {
+            border-radius: 0;
+            border-color: dark-color;
+            background-color: dark-color;
+        }
 
-.da-guilds > .guild-1EfMGQ:nth-child(1) a {
-    background-image: url(https://i.imgur.com/yyiIoTm.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.da-guilds > .guild-1EfMGQ:nth-child(1) svg {
-    display: none;
-}
+        .da-metadataIcon,
+        .da-downloadButton,
+        .da-markup code,
+        .wrapper-35wsBm * {
+            color: light-color;
+        }
 
-@keyframes spin {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
-}
+        .da-buttonContainer div {
+            visibility: visible;
+        }
 
-/* ===== Guild Public icon ===== */
+        .da-reactions .da-reaction {
+            background-color: dark-color;
+            border-radius: 0;
+            filter: sepia(50%);
+            transition: all 0.2s;
 
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    border-left-color: transparent;
-    border-right-color: transparent;
-}
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2) a {
-    color: #4D493E !important;
-}
-div[class*="guilds-"] > div[class*="guild-"]:nth-child(2):hover a {
-    color: #C8C2AA !important;
-}
+            &:hover {
+                filter: sepia(0%);
+            }
 
-/* ===== Guild Friends online ===== */
+            .da-reactionCount {
+                color: light-color;
+            }
+        }
+    }
 
-div[class*="friendsOnline-"] {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    color: #4D493E !important;
-}
+    // ===== Content Form =====
+    form {
+        background-color: dark-color !important;
+        margin-left: 0;
+        margin-right: 0;
+        border-left: 1px solid light-color;
+        padding-left: 10px;
+        padding-right: 10px;
 
-/* ===== Guild DMs ===== */
+        .da-channelTextArea .da-inner {
+            border-radius: 0;
 
-span[class*="dms-"] {
-    background-color: #C8C2AA;
-}
-span[class*="dms-"] div[class*="guildInner-"] a {
-    width: 100%;
+            .da-textArea {
+                color: light-color;
+            }
+
+            .da-contents {
+                svg path {
+                    fill: light-color;
+                }
+
+                .sprite-2iCowe {
+                    filter: sepia(100%);
+                }
+            }
+        }
+    }
 }
 
-/* ===== Guild seperator ===== */
+// ===== Scroller =====
+.theme-dark .messagesWrapper-3lZDfY .scroller-wrap,
+.theme-light .messagesWrapper-3lZDfY .scroller-wrap,
+.scroller-wrap {
+    .scroller {
+        &::webkit-scrollbar {
+            height: 8px;
+            width: 5px;
+        }
 
-div[class*="guildSeparator-"] {
-    width: 100%;
+        &::-webkit-scrollbar-corner {
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(32,34,37,.6);
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: move;
+        }
+
+        &::-webkit-scrollbar-track {
+            visibility: hidden;
+            background-clip: padding-box;
+            border-radius: 7.5px;
+            border-style: solid;
+            background-color: transparent;
+            border: 3px solid transparent;
+        }
+
+        &::-webkit-scrollbar-track-piece {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+}
+
+// ===== Members Wrap =====
+.da-membersWrap {
+    .da-members {
+        background-color: transparent;
+
+        .member-3W1lQa {
+            position: relative;
+            margin-left: 0;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            border-radius: 0;
+            color: #4D493E;
+
+            svg .da-activityIconForeground {
+                fill: dark-color;
+            }
+
+            &:hover,
+            &.popout-open {
+                border-color: dark-color;
+
+                .da-content,
+                .da-activityText,
+                svg .da-activityIconForeground {
+                    color: light-color;
+                    fill: light-color;
+                    background-color: transparent;
+                    z-index: 2;
+                }
+
+                &::before {
+                    width: 100%;
+                }
+            }
+
+            &::before {
+                background-fill()
+            }
+
+            .da-bot {
+                border-radius: 0;
+                filter: sepia(75%);
+            }
+        }
+
+        .da-membersGroup,
+        .da-activityText {
+            color: dark-color;
+        }
+    }
+}
+
+.theme-dark,
+.theme-light {
+    &.da-popouts {
+        .da-container {
+            background-color: dark-color;
+            border-radius: 0;
+
+            .da-option {
+                &:after {
+                    background-image: none;
+                }
+            }
+        }
+
+        .da-messagesPopoutWrap {
+            background-color: transparent;
+            box-shadow: none;
+            border: 0;
+
+            .da-header {
+                display: none;
+            }
+
+            .da-messageGroupWrapper {
+                background-color: light-color;
+                border: 0;
+                border-radius: 0;
+
+                .da-containerCozy {
+                    background-color: light-color;
+
+                    .da-timestampCozy {
+                        color: dark-color;
+                    }
+
+                    .da-wrapperAudio,
+                    .da-attachment,
+                    .da-embed,
+                    .da-markup pre,
+                    .da-markup code,
+                    .da-markup code.inline,
+                    .wrapper-35wsBm {
+                        border-radius: 0;
+                        border-color: dark-color;
+                        background-color: dark-color;
+                    }
+
+                    .da-metadataIcon,
+                    .da-downloadButton,
+                    .da-markup code,
+                    .wrapper-35wsBm * {
+                        color: light-color;
+                    }
+
+                    .da-actionButtons {
+                        background-color: transparent;
+                        box-shadow: none;
+
+                        .da-jumpButton,
+                        .da-closeButton {
+                            background-color: dark-color;
+                            border-radius: 0;
+                        }
+
+                        .da-closeButton {
+                            height: 18px;
+                            margin-top: 0;
+                        }
+                    }
+
+                    &:hover {
+                        .da-closeButton {
+                            opacity: 0.9;
+                        }
+                    }
+                }
+            }
+            .da-channelSeparator {
+                background-color: light-color;
+                margin-bottom: 0;
+                margin-top: 0;
+                padding: 10px;
+
+                .da-channelName,
+                .da-guildName {
+                    color: dark-color;
+                }
+
+                .da-guildName {
+                    opacity: 0.3;
+                }
+            }
+            .da-scrollingFooterWrap {
+                background-color: light-color;
+
+                .da-body {
+                    color: dark-color;
+                }
+            }
+        }
+    }
 }
 
 /* ===== Notifications ===== */
-
+// TODO: Replace
 div[class*="guild-"] div[class*="avatar-small-"],
 div[class*="guild-"] div[class*="avatar-small-"] a {
     width: 100%;
@@ -209,455 +775,55 @@ div[class*="guild-"] div[class*="avatar-small-"] a {
     background-size: contain;
 }
 
-/* ===== New guild ===== */
-
-button[class*="guildsAdd-"] /* Initial icon */ {
-    border-radius: 0;
-    background-color: #C8C2AA !important;
-    color: #4D493E !important;
-    border: 1px solid transparent !important;
-    border-left-width: 0 !important;
-    border-right-width: 0 !important;
-}
-button[class*="guildsAdd-"]:hover /* Initial icon hover */ {
-    border-color: #4D493E !important;
-    background-color: transparent;
-    color: #C8C2AA !important;
-}
-button[class*="guildsAdd-"]:hover::before /* Icon black bar hover */ {
-    width: 100%;
-}
-
-span[class*="guildsAddInner-"] /* Icon inner text */ {
-    top: -5px;
-}
-
-/* ===== Tooltips ===== */
-
-.tooltip {
-    background-color: #4D493E !important;
-    color: #C8C2AA !important;
-}
-.tooltip.tooltip-top::after {
-    border-top-color: #4D493E !important;
-}
-.tooltip.tooltip-bottom::after {
-    border-bottom-color: #4D493E !important;
-}
-.tooltip.tooltip-right::after {
-    border-right-color: #4D493E !important;
-}
-.tooltip.tooltip-left::after {
-    border-left-color: #4D493E !important;
-}
-
-/* ===== Guild speaking icon ===== */
-
-div[class*="guild-"][class*="audio-"] div[class*="guildInner-"]::after,
-div[class*="guild-"][class*="video-"] div[class*="guildInner-"]::after {
-    right: 4px !important;
-    top: 5px !important;
-    background-color: #4D493E !important;
-}
-
 /* ===== Guild placeholder ===== */
-
+// TODO: Replace
 div[class*="guildPlaceholder-"] {
     border-radius: 0;
     border: none;
     background-color: #4D493E;
 }
 
-/* ===== Windows buttons ===== */
-
-div[class*="winButtonClose-"] svg polygon /* Close button */ {
-    fill: #4D493E;
-}
-div[class*="winButtonClose-"]:hover /* Close button hover */ {
-    background-color: #4D493E;;
-}
-div[class*="winButtonClose-"]:hover svg polygon /* Close button hover icon */ {
-    fill: #C8C2AA;
-}
-
-div[class*="winButtonMinMax-"] svg[name="TitleBarMaximize"] rect /* Maximize button */ {
-    stroke: #4D493E;
-}
-div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMaximize"] rect /* Mazimize button hover */{
-    stroke: #C8C2AA;
-}
-
-div[class*="winButtonMinMax-"] svg[name="TitleBarMinimize"] rect /* Minimize button */ {
-    fill: #4D493E;
-}
-div[class*="winButtonMinMax-"]:hover svg[name="TitleBarMinimize"] rect /* Minimize button hover */ {
-    fill: #C8C2AA;
-}
-
-/* ===== Wordmark ===== */
-
-div[class*="wordmark-"] svg path {
-    fill: #4D493E;
-}
-
-div[class*="titleBar-"]::after {
-    color:#fff;
-    position:absolute;
-    left:0
-}
-
-/* ===== Unread message indicator ===== */
-
-div[class*="unread-"] {
-    box-shadow: none !important;
-}
-
-/* ===== Channel container ===== */
-
-div[class*="channels-"] /* Container background */ {
-    background-color: #C8C2AA !important;
-}
-
-header[class*="header-"] /* Container header */ {
-    background-color: #4D493E !important;
-    color: #C8C2AA;
-    box-shadow: none;
-    border-right: 1px solid #C8C2AA;
-}
-
-header[class*="header-"] svg g path:nth-child(2),
-header[class*="header-"] svg g path:nth-child(3) {
-    stroke: #C8C2AA;
-}
-
-/* ===== Channels ===== */
-
-div[class*="channels-"] div[class*="content-"] /* Channel containers */ {
-    margin-left: 0;
-    border-radius:0;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-}
-div[class*="channels-"] div[class*="content-"]::before /* Channel containers black bar */ {
-    background-fill()
-}
-
-div[class*="channels-"] div[class*="contentSelectedText-"],
-div[class*="channels-"] div[class*="contentHoveredText-"],
-div[class*="channels-"] div[class*="contentConnectedVoice-"],
-div[class*="channels-"] div[class*="contentHoveredVoice-"] {
-    border-color: #4D493E !important;
-    background-color: transparent;
-}
-
-div[class*="channels-"] div[class*="contentSelectedText-"]::before,
-div[class*="channels-"] div[class*="contentHoveredText-"]::before,
-div[class*="channels-"] div[class*="contentConnectedVoice-"]::before,
-div[class*="channels-"] div[class*="contentHoveredVoice-"]::before {
-    width: 100%;
-}
-
-div[class*="name-"] {
-    color: #4D493E;
-    z-index: 2;
-}
-
-div[class*="name-"][class*="nameConnectedText-"],
-div[class*="name-"][class*="nameConnectedVoice-"],
-div[class*="name-"][class*="nameSelectedText-"],
-div[class*="name-"][class*="nameSelectedVoice-"],
-div[class*="name-"][class*="nameHoveredText-"],
-div[class*="name-"][class*="nameHoveredVoice-"],
-div[class*="contentHoveredText-"] div[class*="name-"][class*="nameUnreadText-"] {
-    color: #C8C2AA;
-}
-
-/* ===== Channel groups ===== */
-
-svg[class*="iconDefault-"] path,
-svg[class*="iconHovered-"] path,
-svg[class*="iconHoveredCollapsed-"] path,
-svg[class*="iconMuted-"] path,
-svg[class*="iconUnread-"] path,
-svg[class*="iconCollapsed-"] path {
-    fill: #4D493E;
-}
-
-div[class*="nameDefault-"],
-div[class*="nameHovered-"],
-div[class*="nameHoveredCollapsed-"],
-div[class*="nameCollapsed-"] {
-    color: #4D493E;
-}
-
-/* ===== Icons ===== */
-
-svg[class*="icon-"] path {
-    fill: #4D493E;
-    opacity: 1;
-}
-
-svg[class*="icon-"][class*="colorConnectedText-"] path,
-svg[class*="icon-"][class*="colorConnectedVoice-"] path,
-svg[class*="icon-"][class*="colorHoveredText-"] path,
-svg[class*="icon-"][class*="colorHoveredVoice-"] path,
-svg[class*="icon-"][class*="colorLockedText-"] path,
-svg[class*="icon-"][class*="colorLockedVoice-"] path,
-svg[class*="icon-"][class*="colorSelectedText-"] path,
-svg[class*="icon-"][class*="colorSelectedVoice-"] path,
-div[class*="actionIcon-"] svg path {
-    fill: #C8C2AA;
-}
-
 /* ===== Connection status ===== */
-
+// TODO: Replace
 .container-1UB9sr /* Connection container */ {
     background-color: #4D493E !important;
     border-color: #C8C2AA;
 }
-
 .container-1UB9sr a[class*="channel-"] /* Channel Name */ {
     color: #C8C2AA;
 }
 
-/* ===== User / Settings ===== */
-
-.container-2Thooq /* Container */ {
-    background-color: #4D493E !important;
-}
-
-.username {
-    color: #C8C2AA;
-}
-
 /* ===== Content text ===== */
-
+// TODO: Replace
 div[class*="markup-"] {
     color: #4D493E !important;
 }
 
-/* ===== Content header ===== */
 
-div[class*="chat-"] div[class*="titleWrapper-"] /* Background */ {
-    background-color: #4D493E;
-}
 
-div[class*="chat-"] div[class*="title-"]  {
-    box-shadow: none !important;
-}
 
-div[class*="chat-"] span[class*="channelName-"],
-div[class*="chat-"] span[class*="topic-"] {
-    color: #C8C2AA;
-}
-
-span[class*="channelName-"] svg path, /* Pound icon */
-span[class*="iconMargin-"] svg[name="NotificationBell"] g path,
-span[class*="iconMargin-"] svg[name="Pin"] g path.iconForeground-3y9f0B,
-span[class*="iconMargin-"] svg[name="People"] g path,
-span[class*="iconMargin-"] svg[name="Mention"] path,
-span[class*="iconMargin-"] svg[name="QuestionMark"] path {
-    fill: #C8C2AA;
-}
-
-/* ===== Content body ===== */
-
-time[class*="timestampCozy-"] {
-    color: #4D493E !important;
-}
-
-div[class*="chat-"] div[class*="divider-"] > span,
-div[class*="chat-"] div[class*="divider-"]::before /* Divider */ {
-    color: #C8C2AA !important;
-    background-color: #4D493E;
-    border-radius: 0;
-}
-
-div[class*="chat-"] .wrapper-3WhCwL,
-div[class*="chat-"] .mention /* Links and mentions */ {
-    background-color: #4D493E;
-    color: #C8C2AA;
-}
-
-div[class*="chat-"] div[class*="wrapperAudio-"],
-div[class*="chat-"] div[class*="attachment-"],
-div[class*="chat-"] div[class*="embed-"],
-div[class*="chat-"] div[class*="markup-"] pre,
-div[class*="chat-"] div[class*="markup-"] code,
-div[class*="chat-"] div[class*="markup-"] code.inline,
-div[class*="chat-"] .wrapper-35wsBm {
-    border-radius: 0;
-    border-color: #4D493E;
-    background-color: #4D493E;
-}
-div[class*="chat-"] div[class*="wrapperAudio-"] div[class*="audioMetadata-"] svg[class*="metadataIcon-"],
-div[class*="chat-"] div[class*="attachment-"] svg[class*="downloadButton-"],
-div[class*="chat-"] div[class*="markup-"] code,
-div[class*="chat-"] .wrapper-35wsBm * {
-    color: #C8C2AA;
-}
-
-div[class*="chat-"] div[class*="buttonContainer-"] div[class*="btn-"],
-div[class*="chat-"] div[class*="buttonContainer-"] div[class*="button-"] {
-
-    visibility: visible;
-}
-
-/* ===== Content scrollbar ===== */
-
-.scroller-wrap .scroller::-webkit-scrollbar {
-    height: 8px;
-    width: 5px;
-}
-
-.scroller-wrap .scroller::-webkit-scrollbar-corner {
-    background-color: transparent;
-}
-
-.scroller-wrap .scroller::-webkit-scrollbar-thumb {
-    background-color: rgba(32,34,37,.6);
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: move;
-}
-
-.scroller-wrap .scroller::-webkit-scrollbar-track {
-    visibility: hidden;
-    background-clip: padding-box;
-    border-radius: 7.5px;
-    border-style: solid;
-    background-color: transparent;
-    border: 3px solid transparent;
-}
-
-.scroller-wrap .scroller::-webkit-scrollbar-track-piece {
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
-/* ===== Content form ===== */
-
-div[class*="chat-"] form {
-    background: #4D493E !important;
-    margin-left: 0;
-    margin-right: 0;
-    border-left: 1px solid #C8C2AA;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] {
-    border-radius: 0;
-}
-
-div[class*="chat-"] form div[class*="channelTextArea-"] div[class*="inner-"] textarea[class*="textArea-"] {
-    color: #C8C2AA;
-}
-
-div[class*="chat-"] div[class*="contents-"] svg path {
-    fill: #C8C2AA;
-}
-
-div[class*="chat-"] div[class*="contents-"] div[class*="sprite-"] {
-    filter: sepia(100%);
-}
-
-/* ===== Member list ===== */
-
-div[class*="membersWrap-"] div[class*="members-"] {
-    background-color: #C8C2AA;
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] {
-    position: relative;
-    margin-left: 0;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    border-radius: 0;
-
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="membersGroup-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"] svg path[class*="activityIconForeground-"] {
-    color: #4D493E;
-    fill: #4D493E;
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"] {
-    z-index: 2;
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="content-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="content-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open div[class*="activityText-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover svg path[class*="activityIconForeground-"],
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open svg path[class*="activityIconForeground-"] {
-    color: #C8C2AA;
-    fill: #C8C2AA;
-    background-color: transparent;
-    z-index: 2;
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]::before {
-    background-fill()
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover,
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open {
-    border-color: #4D493E;
-}
-
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"]:hover::before,
-div[class*="membersWrap-"] div[class*="members-"] div[class*="member-"].popout-open::before {
-    width: 100%;
-}
-
-/* ===== Bots ===== */
-
-span[class*="bot-"] {
-    border-radius: 0;
-    filter: sepia(75%);
-}
-
-/* ===== Reactions ===== */
-
-.reactions .reaction {
-    background-color: #4D493E !important;
-    border-radius: 0;
-    filter: sepia(50%);
-    transition: all 0.2s;
-}
-.reactions .reaction:hover {
-    filter: sepia(0%);
-}
-.reactions .reaction .reaction-count {
-    color: #C8C2AA !important;
-}
 
 /* ===== Setting backgrounds to transparent ===== */
 
 .theme-dark .layer-3QrUeG,
 .theme-dark .layers-3iHuyZ,
 .container-2lgZY8,
-.theme-dark .guildsWrapper-5TJh6A, /* Sidebar */
-.channels-Ie2l6A, /* Name list container */
-.container-PNkimc, /* Name list */
-.container-1UB9sr, /* Voice connected */
-.container-2Thooq, /* Name (mute/deafen/settings) */
-.chat .messages-wrapper /* Message wrappers */ {
+.theme-dark .guildsWrapper-5TJh6A,
+.channels-Ie2l6A,
+.container-PNkimc,
+.container-1UB9sr,
+.container-2Thooq,
+.chat .messages-wrapper{
     background: transparent;
 }
 
 .content-yTz4x3,
 .messagesWrapper-3lZDfY,
 .chat-3bRxxu,
-.guild-1EfMGQ .guildInner-3DSoA4, /* Sidebar channel icons */
-.chat, /* Chat background */
-.chat .content, /* Chat content background */
-.membersGroup-v9BXpm, /* Member list */
-.title-3qD0b-, .titleCall-_b9o8P /* Title area */ {
+.guild-1EfMGQ .guildInner-3DSoA4,
+.chat,
+.chat .content,
+.membersGroup-v9BXpm,
+.title-3qD0b-, .titleCall-_b9o8P {
     background: transparent !important;
 }
