@@ -31,3 +31,9 @@
 - Theming for popouts
 ### Changed
 - Converted the theme to be built using Stylus and Webpack
+
+## v0.5
+### Added
+- Theming for currently typing
+- Theming for "viewing older messages"
+- Theming for private message list and menu buttons

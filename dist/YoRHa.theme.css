@@ -1,4 +1,4 @@
-//META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.4","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
+//META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.5","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
 
 .da-appMount {
   background: url("https://i.imgur.com/PmYI9Mu.jpg");
@@ -352,6 +352,25 @@
 .da-chat .da-titleWrapper .da-title .da-iconForeground {
   fill: #c8c2aa;
 }
+.da-chat .da-newMessagesBar {
+  background-color: #4d493e;
+  border-radius: 0;
+  border-top: 1px solid #c8c2aa;
+}
+.da-chat .da-newMessagesBar button {
+  color: #c8c2aa;
+}
+.da-chat .da-jumpToPresentBar {
+  background-color: #4d493e;
+  border-radius: 0;
+  border-bottom: 1px solid #c8c2aa;
+}
+.da-chat .da-jumpToPresentBar:hover {
+  background-color: #4d493e;
+}
+.da-chat .da-jumpToPresentBar button {
+  color: #c8c2aa;
+}
 .da-chat .da-messages .da-timestampCozy {
   color: #4d493e;
 }
@@ -406,6 +425,13 @@
   border-left: 1px solid #c8c2aa;
   padding-left: 10px;
   padding-right: 10px;
+}
+.da-chat form .da-typing {
+  background-color: #4d493e;
+  padding-left: 10px;
+}
+.da-chat form .da-typing span {
+  color: #c8c2aa;
 }
 .da-chat form .da-channelTextArea .da-inner {
   border-radius: 0;
@@ -611,6 +637,62 @@
 .theme-dark.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap .da-body,
 .theme-light.da-popouts .da-messagesPopoutWrap .da-scrollingFooterWrap .da-body {
   color: #4d493e;
+}
+.da-privateChannels .search-bar {
+  border-radius: 0;
+  background-color: #4d493e;
+}
+.da-privateChannels .search-bar input {
+  color: #c8c2aa;
+}
+.da-privateChannels header {
+  color: #4d493e;
+  opacity: 1;
+}
+.da-privateChannels .da-channel {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.da-privateChannels .da-channel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 0;
+  background-color: #4d493e;
+  transition: width 0.2s;
+}
+.da-privateChannels .da-channel:hover,
+.da-privateChannels .da-channel.da-selected {
+  border-color: #4d493e;
+}
+.da-privateChannels .da-channel:hover::before,
+.da-privateChannels .da-channel.da-selected::before {
+  width: 100%;
+}
+.da-privateChannels .da-channel:hover a,
+.da-privateChannels .da-channel.da-selected a {
+  background-color: transparent;
+  color: #c8c2aa;
+}
+.da-privateChannels .da-channel:hover a .da-name,
+.da-privateChannels .da-channel.da-selected a .da-name,
+.da-privateChannels .da-channel:hover a .da-activity,
+.da-privateChannels .da-channel.da-selected a .da-activity {
+  color: #c8c2aa;
+}
+.da-privateChannels .da-channel a {
+  border-radius: 0;
+  color: #4d493e;
+}
+.da-privateChannels .da-channel a * {
+  z-index: 2;
+}
+.da-privateChannels .da-channel a .da-name,
+.da-privateChannels .da-channel a .da-activity {
+  color: #4d493e;
+  opacity: 0.9;
 }
 /* ===== Notifications ===== */
 div[class*="guild-"] div[class*="avatar-small-"],

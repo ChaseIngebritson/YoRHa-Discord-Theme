@@ -1,5 +1,5 @@
 @css {
-    //META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.4","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
+    //META{"name":"YoRHa","description":"A Better Discord theme designed with the same principles as the UI from NieR: Automata.","author":"GOmonkeymanGO","version":"0.5","website":"https://github.com/ChaseIngebritson/YoRHa-Discord-Theme"}*//{}
 }
 
 // Variables
@@ -360,7 +360,7 @@ spin-animation(duration) {
         border-bottom: 1px solid transparent;
 
         &::before {
-            background-fill()
+            background-fill();
         }
 
         svg {
@@ -483,6 +483,30 @@ spin-animation(duration) {
         }
     }
 
+    .da-newMessagesBar {
+        background-color: dark-color;
+        border-radius: 0;
+        border-top: 1px solid light-color;
+
+        button {
+            color: light-color;
+        }
+    }
+
+    .da-jumpToPresentBar {
+        background-color: dark-color;
+        border-radius: 0;
+        border-bottom: 1px solid light-color;
+
+        &:hover {
+            background-color: dark-color;
+        }
+
+        button {
+            color: light-color;
+        }
+    }
+
     // ===== Message Content =====
     .da-messages {
         .da-timestampCozy {
@@ -553,6 +577,15 @@ spin-animation(duration) {
         border-left: 1px solid light-color;
         padding-left: 10px;
         padding-right: 10px;
+
+        .da-typing {
+            background-color: dark-color;
+            padding-left: 10px;
+
+            span {
+                color: light-color;
+            }
+        }
 
         .da-channelTextArea .da-inner {
             border-radius: 0;
@@ -647,7 +680,7 @@ spin-animation(duration) {
             }
 
             &::before {
-                background-fill()
+                background-fill();
             }
 
             .da-bot {
@@ -761,6 +794,66 @@ spin-animation(duration) {
                 .da-body {
                     color: dark-color;
                 }
+            }
+        }
+    }
+}
+
+// ===== Private Channels =====
+.da-privateChannels {
+    .search-bar {
+        border-radius: 0;
+        background-color: dark-color;
+
+        input {
+            color: light-color;
+        }
+    }
+
+    header {
+        color: dark-color;
+        opacity: 1;
+    }
+
+    .da-channel {
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+
+        &::before {
+            background-fill();
+        }
+
+        &:hover,
+        &.da-selected {
+            border-color: dark-color;
+
+            &::before {
+                width: 100%;
+            }
+
+            a {
+                background-color: transparent;
+                color: light-color;
+
+                .da-name,
+                .da-activity {
+                    color: light-color;
+                }
+            }
+        }
+
+        a {
+            border-radius: 0;
+            color: dark-color;
+
+            * {
+                z-index: 2;
+            }
+
+            .da-name,
+            .da-activity {
+                color: dark-color;
+                opacity: 0.9;
             }
         }
     }
