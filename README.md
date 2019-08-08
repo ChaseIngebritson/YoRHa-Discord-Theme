@@ -1,3 +1,6 @@
+### Currently not updating
+I'm taking a break from keeping the theme updated and will be recreating a version for BetterDiscord 2 when it's released.
+
 ## YoRHa Better Discord Theme
 
 A Better Discord theme based on the UI from NieR: Automata.
