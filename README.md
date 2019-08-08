@@ -1,5 +1,7 @@
 ### Currently not updating
-I'm taking a break from keeping the theme updated and will be recreating a version for BetterDiscord 2 when it's released.
+I'm taking a break from keeping the theme updated and will be recreating a version for BetterDiscord 2 when it's released. Feel free to fork the project if you're interested in creating a new version.
+
+AccraZed also has a wonderful NieR theme if you want a maintained alternative: https://github.com/AccraZed/YoRHA-UI-BetterDiscord
 
 ## YoRHa Better Discord Theme
 
